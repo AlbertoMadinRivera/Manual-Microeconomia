@@ -1,0 +1,1030 @@
+---
+title: "**MANUAL: INTRODUCCIÓN A LA MICROECONOMÍA EN ```R```**"
+author:
+- Madin Rivera, Alberto.
+date: "`r format(Sys.time(), '%b %d, %Y')`"
+header-includes:
+- \usepackage{fancyhdr}
+- \pagestyle{fancy}
+- \fancyhf{}
+- \fancyhead[RE,LO]{Manual de microeconomía en R}
+- \fancyfoot[CE,CO]{\leftmark}
+- \fancyfoot[LE,RO]{}
+- \fancyfoot[LE,RO]{\thepage}
+- \usepackage{titling}
+- \pretitle{\begin{center}
+- \includegraphics[]{1.png}\LARGE\\}
+- \posttitle{\end{center}}
+output:
+  pdf_document:
+    toc: true
+fontsize: 12pt
+lang: es-MX
+documentclass: book
+classoptions: 4paper
+csl: acm-sig-proceedings-long-author-list-csl
+geometry: margin = 2.5cm
+urlcolor: #3498DB
+linkcolor: #3498DB
+link-citations: yes
+---
+
+# 1. INTRODUCCIÓN
+
+# 2. ¿QUÉ ES LA ECONOMÍA?
+
+La economía es una ciencia social que estudia cómo las personas, empresas y los gobiernos deciden utilizar los recursos escasos para satisfacer sus necesidades y deseos. Se ocupa de cómo se producen, distribuyen y consumen los bienes y servicios dentro de una sociedad.
+
+La economía se divide en dos ramas principales: la microeconomía y la macroeconomía. La microeconomía se enfoca en el compartimiento individual de los mercados y los agentes económicos, como las empresas y los consummidores, mientras que la macroeconomía se enfoca en el comportambiento de índices agregados de la economía en su conjuntos, como el crecimiento económico, la inflación, el desempleo y el tipo de cambio.
+
+La economía es esencial para entender cómo funciona una sociedad y cómo las decisiones económicas afectan a la vida de las personas. Sirve para ayudar a los individuos, empresas y gobiernos a tomar decisiones informadas sobre cómo utilizar los recursos de manera eficiente y para entender cómo las políticas económicas afectan a la sociedad en su conjunto. También es importante el crecimiento económico sostenible y la reducción de la pobreza.
+
+# 3. ¿QUÉ ES LA MICROECONOMÍA?
+
+La microeconomía es una rama de la economía que se enfoca en el estudio del comportamiento individual de los mercados y los agentes económicos, como las empresas y los consumidores, y cómo interactúan entre sí en una economía de mercado.
+
+La microeconomía estudia cómo las personas y las empresas toman decisiones sobre cómo producir y consumir bienes y servicios, y cómo estas decisiones afectan a los precios y a la producción en los mercados. También se ocupa de cómo los mercados funcionan y cómo se determinan los precios de los bienes y servicios.
+
+Entre los temas que aborda la microeconomía se incluyen:
+
+* La teoría de la elección del consumidor: cómo las personas deciden qué comprar con su presupuesto limitado.
+* La teoría de la producción: cómo las empresas deciden qué producir y cómo producirlo.
+* La teoría de los mercados: cómo los precios y la producción se determinan en los mercados de bienes y servicios.
+* La teoría de la distribución: cómo se distribuye la riqueza y el ingreso en una economía.
+* La teoría de los juegos: cómo las personas y las empresas interactúan y toman decisiones en situaciones de incertidumbre y competencia.
+
+La microeconomía es esencial para entender cómo funcionan los mercados y cómo las decisiones económicas individuales afectan a la economía en su conjunto. También es importante para ayudar a las empresas a tomar decisiones informadas sobre cómo producir y vender sus productos, y para ayudar a los individuos a tomar decisiones informadas sobre cómo gastar su presupuesto.
+
+# 4. ¿QUÉ ES R RSTUDIO Y CÓMO IMPLEMENTARLOS DENTRO DEL ANÁLISIS MICROECONÓMICO?
+
+R es un lenguaje de programación y un entorno de desarrollo para análisis estadísticos y gráficos. Es ampliamente utilizado en investigación académica, ciencia de datos y análisis empresarial. R es un software libre y gratuito, lo que significa que está disponible para su uso y modificación sin costo.
+
+RStudio es una interfaz de usuario para R que proporciona una variedad de herramientas para facilitar el desarrollo de scripts en R. Incluye un editor de código, una ventana de consola, una vista de archivos y una vista de salida. Además, RStudio también ofrece un conjunto de herramientas adicionales para la visualización de datos, la creación de informes y la colaboración.
+
+RMarkdown es un formato de documento que combina texto enriquecido con elementos de código R. Puede ser utilizado para crear informes, presentaciones y libros electrónicos con una variedad de formatos de salida, incluyendo HTML, PDF y Word. Uno de los beneficios de RMarkdown es que permite ejecutar el código R directamente en el documento y mostrar los resultados en el mismo documento, lo que facilita la creación de informes reproducibles y transparentes.
+
+En cuanto a su uso en microeconomía, R y RStudio son herramientas muy útiles para la investigación y el análisis de datos en microeconomía. Pueden ser utilizados para analizar y visualizar datos de mercado, para estimar modelos económicos y para simular escenarios económicos.
+RMarkdown es útil para crear informes y presentaciones de investigación, donde se puede incluir tanto el texto como los resultados de los análisis realizados con R, de manera ordenada y reproducible.
+Existen muchos paquetes de R específicos para microeconomía, como ```"microeconometrics"``` y ```"econometrics"```, que proporcionan funciones y herramientas específicas para el análisis económico.
+
+# 5. ELEMENTOS DE LA OFERTA Y DEMANDA
+
+La oferta y la demanda son dos conceptos fundamentales en microeconomía que describen cómo se determinan los precios y las cantidades de bienes y servicios en un mercado.
+
+La oferta se refiere a la cantidad de un bien o servicio que los productores están dispuestos a proporcionar a diferentes niveles de precio. La curva de oferta describe cómo varía la cantidad ofrecida de un bien en función del precio. A medida que el precio aumenta, los productores están más dispuestos a proporcionar más unidades del bien, y viceversa.
+
+La demanda se refiere a la cantidad de un bien o servicio que los consumidores están dispuestos a comprar a diferentes niveles de precio. La curva de demanda describe cómo varía la cantidad demandada de un bien en función del precio. A medida que el precio aumenta, los consumidores están menos dispuestos a comprar unidades del bien, y viceversa.
+
+La interacción entre la oferta y la demanda determina el precio y la cantidad de un bien o servicio en un mercado. El equilibrio de mercado se alcanza cuando la cantidad ofrecida se iguala a la cantidad demandada, y este equilibrio se refleja en el precio de mercado.
+
+La oferta y la demanda pueden ser afectadas por una variedad de factores, como el precio de los insumos, la tecnología, los impuestos y los subsidios, las expectativas del consumidor y el precio de los bienes sustitutos. Además, existen diferentes tipos de mercados, como el mercado competitivo, el monopolio y el oligopolio, cada uno con sus propias características y dinámicas de oferta y demanda.
+
+\newpage
+
+## 5.1 LA CURVA DE LA OFERTA
+
+Se puede utilizar la función `plot()` de base R para graficar la curva de oferta. A continuación, se presenta un ejemplo de código que puede utilizar como base para el diagrama:
+
+```{r echo=TRUE, fig.align='center', message=FALSE, warning=FALSE, out.width="70%", paged.print=FALSE}
+# Crear datos de ejemplo
+precios = c(10, 15, 20, 25, 30)
+cantidades = c(10, 20, 30, 40, 50)
+
+# Crear un data frame con los datos
+datos = data.frame(precios, cantidades)
+
+# Graficar los datos
+plot(y = datos$precios, x = datos$cantidades, 
+     type = "l", xlab = "Cantidad", ylab = "Precio", 
+     main = "Curva de oferta")
+
+# Agregar un grid de fondo
+grid(nx = NULL, ny = NULL, col = "gray60", lty = "dashed", lwd = 0.5)
+
+```
+
+En este ejemplo, se crean dos vectores `precios` y `cantidades` que representan los datos de precio y cantidad de un bien. Luego, se crea un data frame con estos datos y se utiliza la función `plot()` para graficar la curva de oferta. Por último, se utiliza la función `grid()` par agregar un margen de fondo al diagrama. 
+
+\newpage
+
+## 5.2 LA CURVA DE LA DEMANDA
+
+Para  graficar la demanda en `ggplot2`, es similar al proceso de graficar la oferta, primero se necesita tener un conjunto de datos que contenga información sobre el **precio** y la **cantidad** demandada sobre un bien.
+
+```{r echo=TRUE, fig.align='center', message=FALSE, warning=FALSE, out.width="70%", paged.print=FALSE}
+# Crear datos de ejemplo
+precios = c(10, 15, 20, 25, 30)
+cantidades = c(50, 40, 30, 20, 10)
+
+# Crear un data frame con los datos
+datos = data.frame(precios, cantidades)
+
+# Graficar los datos
+plot(y = datos$precios, x = datos$cantidades, 
+     type = "l", xlab = "Precio", 
+     ylab = "Cantidad", main = "Curva de demanda")
+
+# Agregar un grid de fondo
+grid(nx = NULL, ny = NULL, col = "gray60", 
+     lty = "dashed", lwd = 0.5)
+
+```
+
+En este ejemplo, se crean dos vectores `precios` y `cantidades` que representan los datos de precio y cantidad de un bien. Luego, se crea un data frame con estos datos y se utiliza la función `plot()` para graficar la curva de demanda. Por último, se utiliza la función `grid()` para agregar un margen de fondo al diagrama. 
+
+Para graficar la función de la oferta y demanda, primero se necesita tener dos conjuntos de datos, uno para la oferta y otro para la demanda, que contengan información sobre el **precio** y la **cantidad** correspondiente.
+
+## 5.3 LA CURVA DE LA OFERTA Y LA DEMANDA EN EQUILIBRIO
+
+```{r echo=TRUE, fig.align='center', message=FALSE, warning=FALSE, out.width="70%", paged.print=FALSE}
+# Cargar el paquete ggplot2
+# Crear datos de ejemplo
+precios_oferta = c(10, 15, 20, 25, 30)
+cantidades_oferta = c(10, 20, 30, 40, 50)
+
+precios_demanda = c(30, 25, 20, 15, 10)
+cantidades_demanda = c(10, 20, 30, 40, 50)
+
+# Crear un data frame con los datos de oferta
+datos_oferta = data.frame(precios_oferta, cantidades_oferta)
+
+# Crear un data frame con los datos de demanda
+datos_demanda = data.frame(precios_demanda, cantidades_demanda)
+
+# Graficar los datos de oferta y demanda
+plot(datos_oferta$precios_oferta, 
+     datos_oferta$cantidades_oferta, 
+     type = "l", xlab = "Cantidad", 
+     ylab = "Precio", 
+     main = "Curva de oferta y demanda", 
+     col = "blue")
+lines(datos_demanda$precios_demanda, 
+      datos_demanda$cantidades_demanda, 
+      col = "red")
+
+# Agregar un grid de fondo
+grid(nx = NULL, ny = NULL, col = "gray60", 
+     lty = "dashed", lwd = 0.5)
+
+# Agregar el punto de equilibrio
+equilibrio = data.frame(20, 30)
+points(equilibrio$V1, equilibrio$V2, col = "green", pch = 17)
+
+```
+
+En este ejemplo, se crean dos conjuntos de vectores, `precios_oferta`, `cantidades_oferta`, `precios_demanda` y `cantidades_demanda` que representan los datos de precio y cantidad de un bien. Luego, se crean dos data frames con estos datos y se utiliza la función `plot` para graficar la curva de ofertaa en azul y `lines()` para graficar la curva de demanda en rojo. Por último, se utiliza la función `grid()` para agregar un margen de fondo al diagrama, y se agrega un punto en verde en el punto de equilibrio con un `point()`.
+
+Con este diagrama se puede ver claramente el punto de equilibrio, es decir, el precio y la cantidad a los que se encuentra el mercado en un momento dado.
+
+\newpage
+
+## 5.4 EL MODELO MATEMÁTICO DETRÁS DEL EQUILIBRIO DEL MERCADO DE LA OFERTA Y DEMANDA[^a]
+
+[^a]:Es importante señalar que estas ecuaciones son una simplificación de la realidad, ya que en un mercado real existen muchos factores que influyen en la oferta, demanda y precio, pero estás ecuaciones permiten comprender el concepto básico del equilibrio del mercado.
+
+La **ecuación de la oferta** es una representación matemática de la relación entre la cantidad de un bien o servicio que los productores están dispuestos a producir y vender (cantidad ofrecida) y el precio de ese bien o servicio. La ecuación de la oferta se representa generalmente mediante la función matemática llamada **función de oferta**.
+
+Una forma común de representar la función de oferta es mediante la ecuación lineal:
+
+\begin{equation}
+Q_{s} =a + bP
+\end{equation}
+
+Donde:
+
+* $Q_{s}$: Cantidad ofrecida
+* $P$: Precio
+* $a$ y $b$: Son parámetros de la ecuación que se ajustan para ajustar la ecuación a los datos.
+
+En esta ecuación, $b$ es positivo, lo que significa que **a medida que el precio aumenta, la cantidad ofrecida también aumenta** (y viceversa). El parámetro $a$ es el punto en el que la oferta es cerp (es decir, cuando el precio es cero, la candidad ofrecida es $a$).
+
+Por otra parte, la **ecuación de la demanda** es una representación matemática de la relación entre la cantidad de un bien o servicio que los consumidores están dispuestos a adquirir (cantidad demandada) y el precio de ese bien o servicio. La ecuación de la demanda se representa generalmente mediante una función matemática llamada **función de demanda**.
+
+La forma común de representa la función de demanda es mediante una ecuación lineal:
+
+\begin{equation}
+Q_{d} = a - bP
+\end{equation}
+
+Donde:
+
+* $Q_{d}$: Cantidad demandada
+* $P$: Precio
+* $a$ y $b$: Son parámetros de la ecuación, que se ajustan para ajustar la ecuación a los datos.
+
+En esta ecuación, $b$ es negativo, lo que significa que **a medida que el precio aumenta, la cantidad demandada disminuye** (y viceversa). El parámetro $a$ es el punto en el que la demanda es cero (es decir, cuando el precio es cero, la cantidad demandada es a $a$).
+
+La **ecuación de la oferta y demanda en punto de equilibrio** es el punto en el que la cantidad ofrecida ($Q_{s}$) es igual a la cantidad demandada ($Q_{d}$). En otras palabras, es el punto en el que el mercado está en equilibrio, es decir, no hay un exceso ni una escases de un bien o servicio.
+
+La ecuación matemática para representar el punto de equilibrio es:
+
+\begin{equation}
+a + bP = a - bP \equiv Q_{s} = Q_{d}
+\end{equation}
+
+Donde $Q_{s}$ representa la cantidad ofrecida y $Q_{d}$ representa la cantidad demandada.
+
+En términos de precio, el equilibrio en el mercado se puede representar como el punto en el que el precio de la oferta ($P$) es igual al precio de demanda ($P$).
+
+La ecuación matemática para representar el punto de equilibrio en términos de precio es:
+
+\begin{equation}
+\frac{Q_{s}-a}{b}=-(\frac{Q_{d}-a}{b}) \equiv P = P
+\end{equation}
+
+\newpage
+
+## 5.5 FACTORES QUE DESPLACEN LA CURVA DE LA OFERTA
+
+Los cambios en la cantidad ofrecida de un bien o servicio a diferentes precios, sin cambios en el precio del bien o servicio llega a realizar desplazamientos en la curva de la oferta, sea negativo o positivo.
+
+Un **desplazamiento negativo** en la **curva de oferta** ocurre cuando, a un precio dado, la cantidad ofrecida de un bien o servicio disminuye. Esto puede ocurrir debido a varios factores, como:
+
+* Un aumento en los costos de producción, lo que hace que sea más costoso producir el bien o servicio, lo que a su vez reduce la cantidad ofrecida.
+* Un aumento en la tributación, lo que reduce los beneficios de producir el bien o servicio, lo que a su vez reduce la cantidad ofrecida.
+* Un aumento en la regulación, lo que aumenta los costos de cumplir con las regulaciones, lo que a su vez reduce la cantidad ofrecida.
+* Una disminución en el número de productores que ofrecen el bien o servicio, lo que a su vez reduce la cantidad ofrecida.
+
+Por otro lado, un **desplazamiento positivo** en la **curva de oferta** ocurre cuando, a un precio dado, la cantidad ofrecida de un bien o servicio aumenta. Esto puede ocurrir debido a varios factores, como:
+
+* Una disminución en los costos de producción, lo que hace que sea más barato producir el bien o servicio, lo que a su vez aumenta la cantidad ofrecida.
+* Una disminución en la tributación, lo que aumenta los beneficios de producir el bien o servicio, lo que a su vez aumenta la cantidad ofrecida.
+* Una disminución en la regulación, lo que reduce los costos de cumplir con las regulaciones, lo que a su vez aumenta la cantidad ofrecida.
+* Un aumento en el número de productores que ofrecen el bien o servicio, lo que a su vez aumenta la cantidad ofrecida.
+
+Simplificando lo anterior, un desplazamiento negativo en la curva de oferta indica que, a un precio dado, la cantidad ofrecida ha disminuido, mientras que un desplazamiento positivo indica que, a un precio dado, la cantidad ofrecida ha aumentado.
+
+Para graficar la curva de oferta y mostrar los desplazamientos positivo y negativo en `ggplot2` se puede seguir el siguiente código de ejemplo:
+
+\newpage
+
+```{r echo=TRUE, fig.align='center', message=FALSE, warning=FALSE, out.width="70%", paged.print=FALSE}
+library(ggplot2)
+
+# Crear datos para la curva de oferta
+x = c(1:10)
+y = c(1:10)
+ofert_original = data.frame(x,y)
+
+# Crear datos para el desplazamiento positivo
+x2 = c(1:10)
+y2 = c(0:9)
+ofert_positiva = data.frame(x2,y2)
+
+# Crear datos para el desplazamiento negativo
+x3 = c(1:10)
+y3 = c(2:11)
+ofert_negativa = data.frame(x3,y3)
+
+# Graficar la curva de oferta original y los desplazamientos
+ggplot() + 
+  geom_line(data = ofert_original, aes(x,y), color = "blue") + 
+  geom_line(data = ofert_positiva, aes(x2,y2), 
+            color = "red", linetype = "dashed") + 
+  geom_line(data = ofert_negativa, aes(x3,y3), 
+            color = "green", linetype = "dashed") + 
+  geom_segment(aes(x=6, y=6, xend=6, yend=5), 
+               arrow = arrow(length = unit(0.3,"cm")), color = "red") + 
+  geom_segment(aes(x=6, y=6, xend=6, yend=7), 
+               arrow = arrow(length = unit(0.3,"cm")), color = "green") + 
+  ggtitle("Curva de Oferta con Desplazamientos Positivo y Negativo") + 
+  xlab("Cantidad") + 
+  ylab("Precio")
+```
+
+
+En este código se crean tres conjuntos de datos: uno para la curva de oferta original, otro para el desplazamiento positivo y otro para el desplazamiento negativo. Luego se utiliza `ggplot2` para graficar las tres curvas en un mismo diagrama, utilizando diferentes colores y tipos de líneas para diferenciarlas. También se utilizan las funcipnes `geom_segment()` para agregar flechas a los puntos de desplazamientos indicando si es positivo o negativo.
+
+## 5.6 FACTORES QUE DESPLACEN LA CURVA DE DEMANDA
+
+Un **desplazamiento positivo** a la **curva de demanda** se produce cuando el precio de un bien aumenta y la cantidad demandada del bien disminuye. Esto puede ser causado por un aumento en el precio de sustitutos, un aumento en el ingreso de los consumidores, o un cambio en las preferencias de los consumidores hacia el bien.
+
+Por otro lado, un **desplazamiento negativo** en la **curva de demanda** se produce cuando el precio de un bien disminuye y la cantidad demandada del bien aumenta. Esto puede ser causado por una disminución en el precio de sustitutos, una disminución en el ingreso de los consumidores, o un cambio en las preferencias de los consumidores hacia el bien.
+
+Para graficar una curva de demanda original y dos curvas de demanda desplazadas (una positiva y una negativa) en `ggplot2`, se puede utilizar el siguiente código:
+
+```{r echo=TRUE, fig.align='center', message=FALSE, warning=FALSE, out.width="70%", paged.print=FALSE}
+library(ggplot2)
+
+# Crear un data frame con los puntos de la curva de demanda original
+demand_original = data.frame(
+  price = c(20, 30, 40, 50, 60, 70, 80, 90, 100),
+  quantity = c(80, 70, 60, 50, 40, 30, 20, 10, 0))
+
+# Crear un data frame con los puntos de la curva de demanda 
+# desplazada positivamente
+demand_pos = data.frame(
+  price = c(20, 30, 40, 50, 60, 70, 80, 90, 100),
+  quantity = c(90, 80, 70, 60, 50, 40, 30, 20, 10))
+
+# Crear un data frame con los puntos de la curva de demanda 
+# desplazada negativamente
+demand_neg = data.frame(
+  price = c(20, 30, 40, 50, 60, 70, 80, 90, 100),
+  quantity = c(70, 60, 50, 40, 30, 20, 10, 0, -10))
+
+# Graficar las curvas de demanda
+ggplot() +
+  geom_line(data = demand_original, 
+            aes(x = quantity, y = price), color = "black") +
+  geom_line(data = demand_pos, 
+            aes(x = quantity, y = price), color = "red", 
+            linetype = "dashed") +
+  geom_line(data = demand_neg, 
+            aes(x = quantity, y = price), color = "blue", 
+            linetype = "dashed") +
+  geom_segment(aes(x = 45, y = 55, xend = 45, yend = 65), 
+               arrow = arrow(length = unit(0.3, "cm")), color = "red") +
+  geom_segment(aes(x = 45, y = 55, xend = 45, yend = 45), 
+               arrow = arrow(length = unit(0.3, "cm")), color = "blue") +
+  xlab("Cantidad") + ylab("Precio") +
+  ggtitle("Curva de Demanda Original y Desplazamientos")
+```
+
+En este ejemplo, se utilizan tres data frames para almacenar los puntos de las curvas de demanda original, desplazada positivamente y desplazada negativamente. Luego, se utiliza la función `ggplot()` para crear un diagrama vacío, seguido de las funciones `geom_line()` para agregar las curvas de demanda del diagrama. La función `geom_segment()` se utiliza para agregar las flechas que indican los desplazamientos. El argumento `arrow = arrow(length = unit(0.3, "cm"))` se utiliza para agregar las puntas de flecha a las líneas de segmento.
+
+\newpage
+
+```{r echo=TRUE, fig.align='center', message=FALSE, warning=FALSE, out.width="100%", paged.print=FALSE}
+library(ggplot2)
+
+# Datos para la curva de oferta original
+oferta_o = data.frame(x = c(0, 10, 20, 30, 40, 50), 
+                      y = c(0, 10, 20, 30, 40, 50))
+
+# Datos para la curva de oferta desplazada positivamente
+oferta_p = data.frame(x = c(0, 10, 20, 30, 40, 50), 
+                      y = c(5, 15, 25, 35, 45, 55))
+
+# Datos para la curva de oferta desplazada negativamente
+oferta_n = data.frame(x = c(0, 10, 20, 30, 40, 50), 
+                      y = c(-5, 5, 15, 25, 35, 45))
+
+# Datos para la curva de demanda original
+demanda_o = data.frame(x = c(50, 40, 30, 20, 10, 0), 
+                       y = c(0, 10, 20, 30, 40, 50))
+
+# Datos para la curva de demanda desplazada positivamente
+demanda_p = data.frame(x = c(50, 40, 30, 20, 10, 0), 
+                       y = c(5, 15, 25, 35, 45, 55))
+
+# Datos para la curva de demanda desplazada negativamente
+demanda_n = data.frame(x = c(50, 40, 30, 20, 10, 0), 
+                       y = c(-5, 5, 15, 25, 35, 45))
+
+# Punto de equilibrio
+equilibrio = data.frame(x = c(25), y = c(25))
+
+# Crear gráfico
+ggplot() +
+  geom_line(data = oferta_o, aes(x = x, y = y), color = "#154360") +
+  geom_line(data = oferta_p, aes(x = x, y = y), color = "#2980B9", 
+            linetype = "dashed") +
+  geom_line(data = oferta_n, aes(x = x, y = y), color = "#2980B9", 
+            linetype = "dashed") +
+  geom_line(data = demanda_o, aes(x = x, y = y), color = "#B7950B") +
+  geom_line(data = demanda_p, aes(x = x, y = y), color = "#F1C40F", 
+            linetype = "dashed") +
+  geom_line(data = demanda_n, aes(x = x, y = y), color = "#F1C40F", 
+            linetype = "dashed") + 
+    geom_segment(aes(x = 25, y = 0, xend = 25, yend = 25),
+               arrow = arrow(length = unit(0.3, "cm")), 
+               color = "#95A5A6") +
+  geom_segment(aes(x = 0, y = 25, xend = 25, yend = 25),
+               arrow = arrow(length = unit(0.3, "cm")), 
+               color = "#95A5A6") +
+    xlab("Cantidad") + ylab("Precio") +
+  labs(title = "Curva de Oferta y Demanda Original y Desplazamientos",
+subtitle = "Desplazamientos positivos y negativos para la oferta y 
+demanda del mercado")
+
+```
+
+En resumen, la oferta y la demanda son los dos pilares fundamentales de la microeconomía. La oferta se refiere a la cantidad de un bien o servicio que los productores están dispuestos a poner a disposición del mercado a un determinado precio. La demanda, por otro lado, se refiere a la cantidad de un bien o servicio que los consumidores están dispuestos a comprar a un precio específico. El equilibrio de mercado se alcanza cuando la cantidad ofrecida iguala la cantidad demandada, y el precio se estabiliza en el punto de equilibrio. Los desplazamientos en la curva de oferta o demanda se deben a cambios en los factores que afectan a la oferta o demanda, como los precios de los bienes, los salarios, las preferencias de los consumidores o las políticas gubernamentales.
+
+\newpage
+
+# 6. TEORÍA DEL COMPORTAMIENTO DEL CONSUMIDOR
+
+Esta parte de la microeconomía que estudia cómo los individuos, familias y hogares toman decisiones de compra en función de sus ingresos, preferencias y restricciones presupuestarias. El modelo económico tradicional del comportamiento del consumidor se basa en la **teoría de la utilidad**, la cual sugiere que **los consumidores buscan maximizar su utilidad o bienestar subjetivo al elegir qué bienes y servicios desean adquirir**.
+
+El comportamiento del consumidor se puede analizar mediante la **curva de indiferencia**, que representa **todas las combinaciones de bienes y servicios que producen la misma utilidad para el consumidor**. El modelo del consumidor también se relaciona con el concepto de **elasticidad precio**, que **mide la sensibilidad de la demanda a los cambios en el precio de un bien o servicio**.[^b]
+
+[^b]:La economía del comportamiento también se interesa por los sesgos cognitivos y emocionales que influyen en las decisiones de compra de los consumidores, así como en cómo las políticas pueden ser diseñadas para mitigar estos sesgos y mejorar las decisiones de los consumidores.
+
+\newpage
+
+## 6.1 LA TEORÍA CARDINAL DEL CONSUMIDOR
+
+La teoría cardinal de la utilidad es un enfoque que ayuda a medir la utilidad o bienestar subjetivo que un consumidor obtiene de los bienes y servicios que adquiere. Según esta teoría, la utilidad de un bien o servicio es una función de la cantidad de ese bien o servicio que el consumidor posee.
+
+La función de utilidad cardinal se representa como $U(x_{1}, x_{2},\cdots{x_{n}})$, donde $x_{1}$, $x_{2}$, $\cdots{x_{n}}$ representan la cantidad de cada bien o servicio que el consumidor posee. La función de utilidad cardinal se suele asumir que es continua y cóncava, lo que significa que la utilidad total aumenta con la cantidad de bienes y servicios, pero a una tasa decreciente.
+
+La función de utilidad ordinal es una representación no monetaria de la utilidad, se representa como $u(x_{1}, x_{2}, \cdots{x_{n}})$ y se basa en la preferencia del consumidor, la cual se representa mediante la curva de indiferencia.
+
+La maximización del consumidor se lleva a cabo mediante la ecuación de la elección del consumidor, la cual se representa como:
+
+\begin{equation}
+\frac{UMg_{1}}{P_{1}} = \frac{UMg_{2}}{P_{2}} = \cdots{=\frac{UMg_{n}}{P_{n}}}
+\end{equation}
+
+Donde $UMg_{i}$ es la tasa marginal de sustitución entre dos bienes $i$ y $j$, y $P_{i}$ es el precio del bien $i$. **El consumidor maximizará su utilidad cuando la tasa marginal de sustitución entre dos bienes sea igual para todos los bienes en su canasta de consumo**.
+
+## 6.2 DEDUCCIÓN DE LA CURVA DE DEMANDA DEL CONSUMIDOR
+
+La teoría cardinal de la utilidad se refiere a la forma en que los individuos asignan valor a diferentes bienes y servicios, y cómo esa asignación de valor afecta su comportamiento de compra. La ecuación básica de esta teoría es la ley de la demanda, que establece que la cantidad demandada de un bien es inversamente proporcional al precio del bien, siempre y cuando todos los demás factores permanezcan constantes. La ecuación matemática de la **ley de la demanda del consumidor** es:
+
+\begin{equation}
+Q_{d} = f(P,I,P_{n}mT)
+\end{equation}
+
+Donde $Q_{d}$ es la cantidad demandada, $P$ es el precio, $I$ es los ingresos del consumidor, $P_{n}$ es el precio de los bienes sustitutos y $T$ son las preferencias y gustos del consumidor.
+
+Para visualizar la función de demanda con `ggplot2`, primero se debe crear un dataframe con los valores de cantidad demandada y precio. Luego se puede utilizar la función `ggplot()` para crear un diagrama de líneas, especificando el dataframe como la fuente de datos y utilizando `qd` como la variable en el eje y y `p` como la variable en el eje y. Se puede usar la función `geom_line()` para  dibujar la curva de demanda.
+
+```{r echo=TRUE, fig.align='center', message=FALSE, warning=FALSE, out.width="70%", paged.print=FALSE}
+library(ggplot2)
+
+# Crear dataframe con datos de demanda
+df = data.frame(qd = c(100, 200, 300, 400, 500), 
+                 p = c(50, 40, 30, 20, 10))
+
+# Crear gráfico de demanda
+ggplot(df, aes(x = qd, y = p)) + 
+  geom_line() + 
+  xlab("Cantidad demandada") + 
+  ylab("Precio") + 
+  ggtitle("Curva de demanda del consumidor")
+```
+
+Para graficar la cantidad demandada de un bien y la utilidad máxima del consumidor de manera concava en `ggplot2`, se puede seguir el siguiente código:
+
+```{r echo=TRUE, fig.align='center', message=FALSE, warning=FALSE, out.width="70%", paged.print=FALSE}
+library(ggplot2)
+
+# Datos 
+utilidad = c(50, 70, 85, 95, 100, 95, 85, 70, 50)
+qd = c(10, 20, 30, 40, 50, 60, 70, 80, 90)
+
+# Crear un dataframe con los datos
+datos = data.frame(qd, utilidad)
+
+# Graficar la curva de utilidad máxima del consumidor
+ggplot(datos, aes(x = qd, y = utilidad)) +
+  geom_point() +
+  geom_line() +
+  ggtitle("Curva de utilidad máxima del consumidor") +
+  xlab("Cantidad demandada de un bien") +
+  ylab("Utilidad máxima")
+```
+
+La curva se muestra como una línea concava que se ajusta a los puntos de los datos.
+
+\newpage
+
+## 6.3 PUNTO DE EQUILIBRIO DEL CONSUMIDOR
+
+El punto de equilibrio del consumidor se encuentra cuando su curva de utilidad máxima se cruza con su curva de presupuesto. La ecuación utilizada para encontrar este punto de equilibrio es la ecuación de la curva de presupuesto: $Px_{x} + Py_{y} = m$ (donde $Px$ es el precio del bien $x$, $x$ es la cantidad del bien $x$ demandada, $Py$ es el precio del bien $y$, $y$ es la cantidad del bien $y$ demandada, y $m$ es el ingreso del consumidor).
+
+Un ejemplo de lo anterior en `ggplot2` es graficar la curva de utilidad del consumidor y el punto de equilibrio podría ser el siguiente:
+
+```{r echo=TRUE, fig.align='center', message=FALSE, warning=FALSE, out.width="70%", paged.print=FALSE}
+library(ggplot2)
+
+#Crear dataframe con datos de ejemplo
+df = data.frame(x = c(0, 15, 27, 32, 45, 59, 66), 
+                 y = c(68, 53, 44, 36, 29, 12, 0), 
+                 utilidad = c(0, 100, 180, 240, 180, 100, 0))
+
+#Graficar la curva de utilidad del consumidor
+ggplot(df, aes(x=x, y=y, label=utilidad)) +
+  geom_point() +
+  geom_text(nudge_x = 1, nudge_y = 1) +
+  geom_path(color = "blue") +
+  ggtitle("Curva de utilidad del consumidor") +
+  xlab("Cantidad de bien X") +
+  ylab("Cantidad de bien Y")
+```
+
+\newpage
+
+En este ejemplo, se crea un dataframe con datos ficticios de una curva de utilidad del consumidor, se grafica la curva de utilidad utilizando `geom_path()` y se agrega una etiqueta con la utilidad en cada punto de la curva utilizando `geom_text()`.
+
+Para graficar el punto de equilibrio, se puede agregar un punto en el gráfico en el lugar del punto de intersección entre la curva de utilidad y la curva de presupuesto, utilizando `geom_point()` y especificando las coordenadas del punto de equilibrio en el dataframe.
+
+## 6.4 CAMBIOS EN LOS DESPLAZAMIENTOS DE LA CURVA DE INDIFERENCIA
+
+Las curvas de indiferencia se desplazan positivo o negativo debido a cambios en los factores que afectan la utilidad del consumidor, como el ingreso o los precios de los bienes. Un aumento en el ingreso del consumidor, por ejemplo, dará lugar a curvas de indiferencia más elevadas y más amplias, mientras que un aumento en el precio de un bien dará lugar a curvas de indiferencia más estrechas y más bajas.
+
+### 6.4.1 CRÍTICA A LA CURVA DE INDIFERENCIA Y LA UTILIDAD MÁXIMA DEL CONSUMIDOR
+
+La crítica negativa a la curva de indiferencia y a la utilidad máxima del consumidor es que la teoría asume que el consumidor es racional y siempre busca maximizar su utilidad. Sin embargo, en la realidad, los consumidores no siempre actúan de manera racional y pueden tener preferencias cambiantes o ser influenciados por factores externos. Además, la teoría también asume que el consumidor tiene información completa y precisa sobre los productos disponibles y sus precios, lo cual no siempre es el caso en la realidad. Por lo tanto, esta teoría no siempre es un reflejo preciso del comportamiento real del consumidor.
+
+Una de las críticas a la hipótesis de preferencias del consumidor es que asume que el consumidor tiene preferencias estables y ordenadas, lo que no siempre es cierto en la vida real. También se cuestiona la posibilidad de medir la utilidad de un bien o servicio de manera objetiva y cuantificable. Otro aspecto crítico es la imposibilidad de representar en una curva de indiferencia todos los aspectos subjetivos y cambiantes de la preferencia del consumidor. En este sentido, la teoría de la elección racional ha sido criticada por los economistas heterodoxos y por algunas corrientes de la psicología económica.
+
+## 6.5 EL EXCEDENTE DEL CONSUMIDOR
+
+El excedente del consumidor es la diferencia entre el valor que el consumidor asigna a un bien o servicio y el precio que debe pagar por él. Se mide como la diferencia entre el valor máximo que el consumidor estaría dispuesto a pagar y el precio real del bien o servicio. El excedente del consumidor es un indicador de la eficiencia del mercado y refleja el bienestar del consumidor. Un excedente del consumidor más alto indica que el consumidor está obteniendo un valor mayor de lo que está pagando, mientras que un excedente del consumidor más bajo indica que el consumidor está pagando más de lo que el bien o servicio le está proporcionando en términos de valor.
+
+### 6.5.1 EL EXCEDENTE DEL PRODUCTOR
+
+Una medición alternativa del excedente del consumidor es el llamado excedente del productor, también conocido como excedente del mercado, que se mide como la diferencia entre el precio de mercado y el costo de producir un bien o servicio. Este excedente del productor es igual al excedente del consumidor, ya que el excedente total del mercado es la suma del excedente del consumidor y el excedente del productor.
+
+### 6.5.2 ANÁLISIS DE LAS CURVAS DE INDIFERENCIA CON LA TEORÍA DEL INTERCAMBIO DENTRO DE LA CAJA DE EDGEWODTH
+
+La teoría del intercambio en la caja de Edgeworth se utiliza para analizar cómo los individuos seleccionan los bienes que desean consumir, en función de sus preferencias y de los precios de los bienes. La idea principal es que el individuo tiene una cierta cantidad de recursos disponibles, representada por una "caja" y que tiene que elegir cómo distribuir esos recursos entre diferentes bienes para maximizar su utilidad.
+
+La teoría del intercambio en la caja de Edgeworth se representa gráficamente mediante curvas de indiferencia. Cada curva de indiferencia representa un nivel diferente de utilidad para el individuo, y las curvas se desplazan positivo y negativo dependiendo de los cambios en los precios de los bienes y en los recursos disponibles.
+
+El análisis de las curvas de indiferencia con la teoría del intercambio en la caja de Edgeworth permite identificar el punto de equilibrio entre la oferta y la demanda, y también permite medir el excedente del consumidor y el excedente del productor. El excedente del consumidor es la diferencia entre la utilidad que el individuo obtiene de los bienes que consume y el costo de esos bienes.
+
+En resumen, el análisis de las curvas de indiferencia con la teoría del intercambio en la caja de Edgeworth es una herramienta útil para analizar el comportamiento del consumidor y el equilibrio de mercado.
+
+\newpage
+
+```{r echo=TRUE, fig.align='center', message=FALSE, warning=FALSE, out.width="90%", paged.print=FALSE}
+library(ggplot2)
+library(gridExtra)
+# datos de demanda individual de consumidores
+data_indv = data.frame(price = c(100, 80, 60, 40, 20), 
+                        quantity = c(50, 60, 70, 80, 90))
+# datos de demanda total del mercado
+data_agg = data.frame(price = c(100, 80, 60, 40, 20), 
+                      quantity = c(1500, 1800, 2100, 2400, 2700))
+# gráfico de demanda individual de consumidores
+p1 = ggplot(data_indv, aes(y = price, x = quantity)) + 
+  geom_point() +
+  geom_line() +
+  xlab("Cantidad demandada") +
+  ylab("Precio") +
+  labs(subtitle = "Demanda individual de consumidores")
+# gráfico de demanda total del mercado
+p2 = ggplot(data_agg, aes(y = price, x = quantity)) + 
+  geom_line() +
+  xlab("Cantidad demandada") +
+  ylab("Precio") +
+  labs(subtitle = "Demanda total del mercado")
+grid.arrange(p1, p2, ncol = 2, nrow = 2)
+```
+
+## 6.6 ELASTICIDAD-PRECIO DE LA DEMANDA
+
+La elasticidad-precio de la demanda es una medida de la sensibilidad de la cantidad demandada de un bien o servicio a los cambios en su precio. Se calcula como la relación entre el porcentaje de cambio en la cantidad demandada y el porcentaje de cambio en el precio. Una demanda es elástica si un cambio en el precio provoca un cambio mayor en la cantidad demandada, mientras que una demanda es inelástica si un cambio en el precio provoca un cambio menor en la cantidad demandada. La elasticidad-precio de la demanda es una herramienta importante para las empresas al determinar cómo los cambios en los precios afectarán sus ingresos y utilidades.
+
+\begin{equation}
+E_{p} = \frac{\frac{\Delta{Q}}{Q}}{\frac{\Delta{P}}{P}}
+\end{equation}
+
+Donde:
+
+* $E_{p}$: Elasticidad-precio de la demanda
+* $\Delta{Q}$ = Cambio en la cantidad demandada
+* $Q$: Cantidad demandada
+* $\Delta{Q}$: Cambio en el precio
+* $P$: Precio
+
+* **Elasticidad infinitamente positiva**: Una elasticidad infinitamente positiva significa que cualquier cambio en el precio resulta en un cambio igualmente grande en la cantidad demandada. Por ejemplo, si el precio aumenta en un 1%, la cantidad demandada disminuiría en más del 1%.
+* **Elasticidad positiva**: Una elasticidad positiva significa que un cambio en el precio resulta en un cambio proporcional en la cantidad demandada. Por ejemplo, si el precio aumenta en un 1%, la cantidad demandada también disminuiría en un 1%.
+* **Elasticidad unitaria**: Una elasticidad unitaria significa que un cambio en el precio resulta en un cambio igual en la cantidad demandada. Por ejemplo, si el precio aumenta en un 1%, la cantidad demandada también disminuiría en un 1%.
+* **Elasticidad negativa**: Una elasticidad negativa significa que un cambio en el precio resulta en un cambio opuesto en la cantidad demandada. Por ejemplo, si el precio aumenta en un 1%, la cantidad demandada aumentaría.
+* **Elasticidad infinitamente negativa**: Una elasticidad infinitamente negativa significa que cualquier cambio en el precio resulta en un cambio igualmente pequeño en la cantidad demandada. Por ejemplo, si el precio aumenta en un 1%, la cantidad demandada aumentaría solo ligeramente.
+
+# 7. TEORÍA DE LA PRODUCCIÓN MICROECONÓMICA
+
+La teoría de la producción en microeconomía se refiere al estudio de cómo las empresas deciden qué cantidad de bienes y servicios producir con los recursos limitados disponibles. Sirve para entender cómo las empresas toman decisiones sobre cómo asignar los recursos para maximizar su ganancia o su utilidad. La teoría de la producción también ayuda a analizar cómo las empresas responden a cambios en los precios de los factores de producción y cómo esto afecta a la producción y los precios de los bienes y servicios. También es utilizado para analizar cómo las empresas adopten nuevas tecnologías y cómo esto afecta a la eficiencia productiva y los costos.
+
+\newpage
+
+## 7.1  FUNCIÓN DE PRODUCCIÓN PARA UN PRODUCTO ÚNICO
+
+La función de producción para un producto único es una ecuación matemática que describe cómo los factores de producción (como el trabajo y los recursos naturales) se relacionan con la cantidad producida de ese producto. Esta función puede ser lineal o no lineal, y puede ser utilizada para analizar cómo cambios en los factores de producción afectan la producción total, así como para optimizar la producción en términos de costos y eficiencia. En la teoría de producción se utiliza para estudiar cómo las empresas y los productores eligen qué producir, con qué factores de producción y a qué escala.
+
+La ecuación matemática para la función de producción para un producto único es:
+
+\begin{equation}
+Q = f(L, K)
+\end{equation}
+
+Donde:
+
+* $Q$: Cantidad producida
+* $L$: Es el trabajo o el empleo de fuerza laboral
+* $K$: es el capital o los recursos físicos utilizados en la producción.
+
+La función de producción es una relación matemática entre la cantidad producida y los factores de producción utilizados para producirla.[^c] 
+
+[^c]:Es importante mencionar que esta es solo una representación simple de la función de producción, la cual puede ser representada de diferentes formas y con diferentes niveles de complejidad dependiendo del contexto.
+
+## 7.2 LA FUNCIÓN COBB-DOUGLAS
+
+La función Cobb.Douglas es una función de producción que se utiliza para modelar cómo los factores de producción (trabajo y capital) afectan a la producción. La forma general de la función es:
+
+\begin{equation}
+Q = AL^{\alpha}K^{\beta}
+\end{equation}
+
+Donde $Q$ es la cantidad de producción, $L$ es la cantidad de trabajo, $K$ es el capital, $A$ es un factor de proporcionalidad tecnológica y $\alpha$ y $\beta$ son los exponentes de los factores de producción.
+
+Para graficar la función Cobb-Douglas en R, se puede tomar la función `plot()` de base R. A continuación se muestra un ejemplo del código:
+
+```{r echo=TRUE, fig.align='center', message=FALSE, warning=FALSE, out.width="70%", paged.print=FALSE}
+# Crea una función Cobb-Douglas 
+f = function(K, L, A, alpha, beta) {
+  return(A * (K^alpha) * (L^beta))
+}
+
+# Asigna valores a los parámetros de la función
+A = 1
+alpha = 0.5
+beta = 0.5
+
+# Crea un rango de valores para los factores de producción
+K = seq(0, 10, by = 0.1)
+L = seq(0, 10, by = 0.1)
+
+# Calcula los valores de la producción para cada combinación de factores
+y = outer(K, L, f, A = A, 
+          alpha = alpha, beta = beta)
+
+# Grafica la función Cobb-Douglas
+persp(K, L, y, theta = 30, phi = 30, 
+      expand = 0.5, col = "lightblue")
+```
+
+En este ejemplo, primero se define la función Cobb-Douglas, luego se asignan valores a los parámetros de la función ($A$, $\alpha$, $\beta$) y se crea un rango de valores para los factores de producción ($K$ y $L$). A continuación, se usa la función `outer()` para calcular los valores de la producción para cada combinación de factores y finalmente se usa la función `persp()` para graficar la función dentr de un diagrama de perspectiva en 3 dimensiones.
+
+### 7.2.1 DESPLAZAMIENTO DE LA CURVA COBB-DOUGLAS
+
+La curva Cobb-Douglas se desplaza hacia arriba o hacia abajo dependiendo del nivel de productividad del trabajo y del capital. Si la productividad del trabajo y del capital aumenta, entonces la curva Cobb-Douglas se desplazará hacia arriba, lo que indica que se pueden producir más bienes con el mismo nivel de trabajo y capital. Si la productividad del trabajo y del capital disminuye, entonces la curva Cobb-Douglas se desplazará hacia abajo, lo que indica que se pueden producir menos bienes con el mismo nivel de trabajo y capital.
+
+## 7.3 CRÍTICA A LAS CURVAS DE ISOCUANTA Y LA FUNCIÓN COBB-DOUGLAS
+
+Una crítica común a las curvas de isocuanta y la función Cobb-Douglas es que asumen que los factores de producción son sustitutos perfectos entre sí. Sin embargo, en la vida real, esto no siempre es el caso. Por ejemplo, el trabajo y el capital a menudo no son sustitutos perfectos, ya que el trabajo a menudo es especializado y el capital es generalizado.
+
+Otra crítica es que la función Cobb-Douglas asume que el factor de producción tiene una relación constante de sustitución con los demás factores de producción, lo cual es una suposición fuerte y no siempre se cumple en la realidad.
+
+Además, las curvas de isocuanta y la función Cobb-Douglas también asumen una economía cerrada, donde no hay intercambio con el exterior. Sin embargo, en la vida real, los países a menudo tienen comercio con otros países, lo que puede afectar a la producción y los precios de los factores de producción.
+
+Por último, las curvas de isocuanta y la función Cobb-Douglas no tienen en cuenta los efectos ambientales y sociales de la producción. Sin embargo, estos efectos son cada vez más importantes en la toma de decisiones de producción.
+
+## 7.4 MINIMIZACIÓN DE LOS COSTOS A UN NIVEL DADO DE PRODUCCIÓN
+
+La minimización de los costos a un nivel dado de producción se logra a través de la utilización óptima de los recursos productivos disponibles. Esto significa que los productores deben elegir la combinación óptima de factores de producción (trabajo, capital, tierra, etc.) para producir un nivel específico de bienes y servicios. La curva de isocosto se utiliza para representar esta relación entre los costos y la producción, mientras que la función Cobb-Douglas se utiliza para describir la relación entre los factores de producción y la producción. En equilibrio, el productor elegirá la combinación de factores de producción que minimice los costos a un nivel dado de producción.
+
+Para visualizar la minimización de los costos a un nivel dado de producción en R, se puede utilizar la librería `laticce` para crear un diagrama de superficie de costos. El siguiente ejemplo es un código que puede utilizarse para visualizar lo anterior:
+
+```{r echo=TRUE, fig.align='center', message=FALSE, warning=FALSE, out.width="70%", paged.print=FALSE}
+library(lattice)
+
+# Supongamos que nuestros niveles de producción son x1 y x2
+x1 = seq(0, 10, by = 0.1)
+x2 = seq(0, 10, by = 0.1)
+
+# Supongamos que nuestros costos se 
+# calculan como: c(x1, x2) = x1^2 + x2^2
+costs = x1^2 + x2^2
+
+# Creamos un data frame con los datos
+data = data.frame(x1, x2, costs)
+
+# Graficamos la superficie de costos
+cloud(costs ~ x1 * x2, data = data, 
+      xlab = "Nivel de producción x1", 
+      ylab = "Nivel de producción x2",
+      zlab = "Costos")
+
+```
+
+El código anterior grafica la superficie de costos para los niveles de producción $x_{1}$ y $x_{2}$, donde se asume que los costos son $x_{1}^{2} + x_{2}^{2}$. Esta superficie muestra cómo los costos cambian a medida que los niveles de producción $x_{1}$ y $x_{2}$ cambian. El punto en la superficie donde los costos son mínimos representan el nivel de producción óptimo para minimizar los costos.
+
+## 7.5 ELECCIÓN DEL SENDERO ÓPTIMO DE EXPANSIÓN
+
+La elección del sendero óptimo de expansión se refiere a la selección de la combinación óptima de factores de producción y tecnología para alcanzar un nivel de producción deseado. En microeconomía, la función de producción Cobb-Douglas puede utilizarse para analizar esta elección. Esta función permite modelar la relación entre los factores de producción y la producción, y la curva de isocosto se utiliza para analizar cómo los cambios en los precios de los factores de producción afectan la elección de la combinación óptima de factores. La elección del sendero óptimo de expansión también puede analizarse mediante programación lineal, donde se busca minimizar los costos para alcanzar un nivel dado de producción.
+
+### 7.5.1 EQUILIBRIO EN CORTO PLAZO
+
+En el corto plazo, la elección del sendero óptimo de expansión puede ser limitada debido a la falta de recursos o a restricciones físicas. Por lo tanto, la empresa puede tener que optar por utilizar alternativas menos eficientes para aumentar la producción. 
+
+Para graficar en R el caso de 3 senderos óptimos de expansión en corto plazo, se puede seguir los siguientes pasos:
+
+1. Crear un conjunto de datos para los 3 senderos óptimos de expansión. Se puede usar la función `data.frame()` para crear una tabla ccon los datos de los 3 senderos.
+2. Con la librería `ggplot2` se puede graficar los datos. Se puede usar la función `ggplot()` para especificar el conjunto de datos y los ejes x e y, y la función `geom_line()` para dibujar las líneas de los senderos.
+3. Añadiendo etiquetas, título y leyendas para identificar cada sendero. Se pueden usar las funciones `xlab()`, `ylab()`, `ggtitle()` y `legend()` para hacerlo.
+
+A continuación se muestra un ejemplo de código que se puede usar:
+
+```{r echo=TRUE, fig.align='center', message=FALSE, warning=FALSE, out.width="70%", paged.print=FALSE}
+# Crear conjunto de datos
+sendero1 = data.frame(x = c(1, 2, 3, 4, 5), y = c(10, 8, 6, 4, 2))
+sendero2 = data.frame(x = c(1, 2, 3, 4, 5), y = c(15, 12, 9, 6, 3))
+sendero3 = data.frame(x = c(1, 2, 3, 4, 5), y = c(20, 16, 12, 8, 4))
+
+# Gráfico de senderos
+ggplot() +
+  geom_line(data = sendero1, aes(x = x, y = y), 
+            color = "red", size = 1) +
+  geom_line(data = sendero2, aes(x = x, y = y), 
+            color = "blue", size = 1) +
+  geom_line(data = sendero3, aes(x = x, y = y), 
+            color = "green", size = 1) +
+  xlab("Período") +
+  ylab("Producción") +
+  ggtitle("Senderos óptimos de expansión en corto plazo") +
+  theme_grey() +
+  scale_x_continuous(breaks = c(1, 2, 3, 4, 5)) +
+  scale_y_continuous(breaks = c(2, 4, 6, 8, 10, 12, 14, 16, 18, 20)) +
+  theme(legend.position = "bottom") +
+  scale_color_manual(name = "Sendero",
+                     labels = c("Sendero 1", "Sendero 2", "Sendero 3"),
+                     values = c("red", "blue", "green"))
+
+```
+
+###  7.5.2 EQUILIBRIO EN LARGO PLAZO
+
+En el largo plazo, las empresas tienen más tiempo para planificar y adquirir los recursos necesarios para seguir un sendero óptimo de expansión. Pueden invertir en nuevos equipos o capacitación para los empleados, o expandirse a nuevos mercados, lo que les permite seguir un sendero de expansión más eficiente.
+
+Para graficar el sendero óptimo de expansión en largo plazo, se puede utilizar el paquete `ggplot2` para crear un diagrama de líneas que muestre la relación entre los costos totales y la producción. El código sería algo más o menos como el siguiente:
+
+\newpage
+
+```{r echo=TRUE, fig.align='center', message=FALSE, warning=FALSE, out.width="70%", paged.print=FALSE}
+library(ggplot2)
+
+# Crear conjunto de datos
+data = data.frame(produccion = c(0, 10, 20, 30, 40, 50),
+                   costos_totales = c(1000, 800, 600, 500, 400, 300))
+
+# Graficar el sendero óptimo de expansión en largo plazo
+ggplot(data, aes(x = produccion, y = costos_totales)) +
+  geom_line() +
+  xlab("Producción") +
+  ylab("Costos totales") +
+  labs(title = "Sendero óptimo de expansión en largo plazo")
+```
+
+\newpage
+
+## 7.6 FUNCIÓN DE PRODUCCIÓN DE UNA EMPRESA DE PRODUCTOS MÚLTIPLES
+
+La función de producción de una empresa de productos múltiples se refiere a la relación entre los factores (trabajo, capital, etc) y los bienes (los diferentes productos) de la empresa. La forma matemática más común para expresar esta relación es mediante la **función de producción de Leontief**[^d], también conocida como función de producción de insumo-producto. Esta función se representa mediante una matriz de coeficientes técnicos de producción ($A$), donde cada fila representa un factor y cada columna representa un bien, y un vector de factores ($X$) y un vector de bienes ($Y$). La ecuación matemática es la siguiente:
+
+[^d]:La función de Leontief es una función de producción que se utiliza para modelar la producción de una empresa que produce varios productos. Se basa en la idea de que la producción de un producto depende de los factores (trabajo y capital) y de los factores intermedios (insumos) necesarios para producir ese producto. La función de Leontief se representa matemáticamente de la siguiente manera: $Q = min(A_{1}L_{1},A_{2},L_{2},\cdots{A_{n}L_{n}})$. Donde $Q$ es la cantidad producida de un producto, $A_{1}, A_{2},\cdots{A_{n}}$ son los coeficientes técnicos que representan la relación entre la cantidad de factores intermedios y la cantidad producida, y $L_{1}, L_{2}\cdots{L_{n}}$ son los factores intermedios necesarios para producir una unidad del producto. **La función de Leontief** es una función de producción de una empresa de productos múltiples que no permite el ahorro de escala, y su ecuación es una función mínima.
+
+\begin{equation}
+Y = AX
+\end{equation}
+
+Donde $Y$ es el vector de bienes, $X$ es el vector de factores, y $A$ es la matriz de coeficientes técnicos de producción. Los coeficientes técnicos de producción representan la cantidad de cada factor necesario para producir una unidad de cada bien.
+
+### 7.6.1 CURVA DE ISOINGRESO DE LA EMPRESA MULTIPRODUCTIVA
+
+La curva de isoingreso de una empresa multiproductiva es una representación gráfica de las diferentes combinaciones de producción de dos o más bienes que puede obtener una empresa con un nivel de ingreso fijo. La curva se traza en un diagrama de coordenadas cartesianas con la producción de un bien en el eje x y la producción del otro bien en el eje y. La curva es una línea recta que pasa por el punto de máxima producción posible y tiene una pendiente negativa. Esto se debe a que a medida que la empresa aumenta la producción de un bien, debe disminuir la producción del otro bien debido a la escasez de recursos. La curva de isoingreso de una empresa multiproductiva es una herramienta útil para analizar cómo una empresa utiliza sus recursos para producir diferentes bienes y cómo esto afecta su ingreso.
+
+Para graficar la curva de isoingreso de una empresa multiproductiva para dos bienes en R, se puede utilizar el siguiente código:
+
+\newpage
+
+```{r echo=TRUE, fig.align='center', message=FALSE, warning=FALSE, out.width="70%", paged.print=FALSE}
+# Supongamos que los dos bienes son X y Y
+# y los factores de producción son trabajo (L) y capital (K)
+
+# Crear un dataframe con los datos de producción
+produccion = data.frame(X = c(20, 30, 40, 50, 60),
+                        Y = c(30, 25, 20, 15, 10),
+                        L = c(100, 150, 200, 250, 300),
+                        K = c(1000, 1500, 2000, 2500, 3000))
+
+# Calcular el ingreso total de la empresa
+produccion$IT = produccion$X * produccion$L + produccion$Y * produccion$K
+
+# Graficar la curva de isoingreso
+library(ggplot2)
+ggplot(produccion, aes(x = X, y = Y)) +
+  geom_path() +
+  geom_point(aes(color = IT)) +
+  scale_color_gradient(low = "blue", high = "red") +
+  ggtitle("Curva de isoingreso de la empresa multiproductiva")
+```
+
+En resumen, la teoría de producción es una herramienta valiosa para entender cómo las empresas utilizan los recursos para producir bienes y servicios, y cómo pueden mejorar su eficiencia y rentabilidad en el largo plazo.
+
+\newpage
+
+#  8. TEORÍA DE COSTOS
+
+La teoría de costos en microeconomía estudia cómo las empresas toman decisiones sobre la producción y cómo estas decisiones afectan los costos y los precios de los bienes y servicios. La teoría de costos se divide en dos tipos: costos de corto plazo y costos de largo plazo. Los costos de corto plazo son aquellos que una empresa enfrenta en el corto plazo y no pueden ser modificados, mientras que los costos de largo plazo son aquellos que una empresa puede cambiar a través de decisiones de inversión a largo plazo.
+
+La teoría de costos también distingue entre costos fijos y costos variables. Los costos fijos son aquellos que no varían con la producción, mientras que los costos variables son aquellos que varían en función de la producción. En la teoría de costos, las empresas buscan minimizar sus costos totales para maximizar sus beneficios.
+
+La curva de costo total es una herramienta útil para ilustrar cómo los costos totales cambian con la producción. La curva de costo total se divide en tres secciones: los costos fijos, los costos variables y los costos totales. A medida que la producción aumenta, los costos variables aumentan a un ritmo decreciente hasta alcanzar un punto de inflexión, después de lo cual aumentan a un ritmo creciente. La curva de costo medio también se utiliza para ilustrar cómo los costos medios cambian con la producción.
+
+La teoría de costos también se relaciona con la teoría de la producción, ya que las empresas utilizan la información sobre los costos para tomar decisiones sobre la producción. En conjunto, la teoría de costos y la teoría de la producción proporcionan una comprensión completa de cómo las empresas toman decisiones y cómo estas decisiones afectan los precios y los costos en una economía de mercado.
+
+\newpage
+
+## 8.1 NOTA GENERAL DE LA TEORÍA DE COSTOS
+
+La función matemática que se utiliza para descirbir esta relación es la función de costos total ($TC$), la función de costo variable ($VC$), la función de costo fijo ($FC$) y la función de costo medio ($AC$).
+
+* Función de costo total ($TC$) es la suma de los costos fijos y variables: $TC = FC +  VC$.
+* Función de costo variable ($VC$) es el costo que varía en función de la cantidad producita: $VC = \frac{VC}{Q}$.
+* Función de costo fijo ($FC$) es el costo que no varía con la cantidad producida: $FC = FC$.
+* Función de costo medio ($AC$) es el costo promedio por unidad producida, se calcula dividiendo el costo toal entre la cantidad producida: $AC = \frac{TC}{Q}$.
+
+Para visualizar la función de costo, se puede realizar a través del siguiente código. Un ejemplo para graficar la función de costo total ($C$)
+, costo variable ($VC$) y costo fijo ($FC$) sería el siguiente:
+
+```{r echo=TRUE, fig.align='center', message=FALSE, warning=FALSE, out.width="70%", paged.print=FALSE}
+library(ggplot2)
+
+# Crear un data frame con los datos
+costos = data.frame(x = c(0, 10, 20, 30, 40, 50),
+                     C = c(100, 150, 200, 250, 300, 350),
+                     VC = c(0, 50, 100, 150, 200, 250),
+                     FC = c(100, 100, 100, 100, 100, 100))
+
+# Graficar la función de costo total
+ggplot(costos, aes(x = x)) +
+  geom_line(aes(y = C), color = "blue", size = 1) +
+  geom_line(aes(y = VC), color = "green", size = 1) +
+  geom_line(aes(y = FC), color = "red", size = 1) +
+  xlab("Nivel de producción") +
+  ylab("Costo") +
+  ggtitle("Función de costo total, variable y fijo")
+```
+
+En este caso, se está graficando la función de costo total en azul, el costo variable en verde y el costo fijo en rojo.
+
+\newpage
+
+## 8.2 TEORÍA DE COSTOS TRADICIONALES A CORTO PLAZO
+
+La teoría de costos tradicionales a corto plazo es un concepto clave economía que describe cómo una empresa determina su producción óptima y sus costos en un periodo de tiempo limitado. Según esta teoría, en el corto plazo, algunos factores son fijos y no pueden ser ajustados para responder a las fluctuaciones de la demanda. Otros factores, como el trabajo y los materiales, son variables y pueden ser ajustados. Esta teoría se concentra en cómo los costos totales cambian a medida que la producción varía y cómo la empresa puede maximizar su ganancia produciendo la cantidad óptima de bienes.
+
+\begin{equation}
+TC = FC + VC
+\end{equation}
+
+A continuación se tiene unas líneas de código para generar cada uno de los costos.
+
+```{r echo=TRUE, fig.align='center', message=FALSE, warning=FALSE, out.width="70%", paged.print=FALSE}
+# Costos fijos:
+# Primero, creamos un conjunto de datos de ejemplo
+cantidad = c(0, 10, 20, 30, 40, 50)
+costos_fijos = c(100, 100, 100, 100, 100, 100)
+
+# Ahora creamos un data frame con estos datos
+df = data.frame(cantidad, costos_fijos)
+
+# Utilizamos ggplot para crear un gráfico de costos
+library(ggplot2)
+p1 = ggplot(df, aes(x = cantidad, y = costos_fijos,
+                    color = "Costos Fijos")) +
+  geom_line() +
+  labs(title = "Costos fijos a corto plazo",
+       x = "Cantidad producida",
+       y = "Costo ($)",
+       color = "Tipo de costo") +
+  scale_color_manual(values = c("Costos Fijos" = "blue"))
+```
+
+```{r echo=TRUE, fig.align='center', message=FALSE, warning=FALSE, out.width="70%", paged.print=FALSE}
+# Costos variables:
+# Primero, creamos un conjunto de datos de ejemplo
+cantidad = c(0, 10, 20, 30, 40, 50)
+costos_variables = c(0, 15, 30, 45, 60, 75)
+
+# Ahora creamos un data frame con estos datos
+df = data.frame(cantidad, costos_variables)
+
+# Utilizamos ggplot para crear un gráfico de costos
+library(ggplot2)
+p2 = ggplot(df, aes(x = cantidad, y = costos_variables, 
+                    color = "Costos Variables")) +
+  geom_line() +
+  labs(title = "Costos variables a corto plazo",
+       x = "Cantidad producida",
+       y = "Costo ($)",
+       color = "Tipo de costo") +
+  scale_color_manual(values = c("Costos Variables" = "green"))
+```
+
+```{r echo=TRUE, fig.align='center', message=FALSE, warning=FALSE, out.width="70%", paged.print=FALSE}
+# Costos totales:
+# Primero, creamos un conjunto de datos de ejemplo
+cantidad = c(0, 10, 20, 30, 40, 50)
+costos_totales = costos_fijos + costos_variables
+
+# Ahora creamos un data frame con estos datos
+df = data.frame(cantidad, costos_totales)
+
+# Utilizamos ggplot para crear un gráfico de costos
+library(ggplot2)
+p3 = ggplot(df, aes(x = cantidad, y = costos_totales, 
+                    color = "Costos Totales")) +
+  geom_line() +
+  labs(title = "Costos totales a corto plazo",
+       x = "Cantidad producida",
+       y = "Costo ($)",
+       color = "Tipo de costo") +
+  scale_color_manual(values = c("Costos Totales" = "red"))
+```
+
+```{r echo=TRUE, fig.align='center', message=FALSE, warning=FALSE, out.width="70%", paged.print=FALSE}
+# Todos los costos juntos
+# Primero, creamos un conjunto de datos de ejemplo
+cantidad = c(0, 10, 20, 30, 40, 50)
+costos_totales = costos_fijos + costos_variables
+
+# Ahora creamos un data frame con estos datos
+df = data.frame(cantidad, costos_fijos, costos_variables, costos_totales)
+
+# Utilizamos ggplot para crear un gráfico de costos
+library(ggplot2)
+p4 = ggplot(df, aes(x = cantidad, y = costos_fijos, 
+                    color = "Costos Fijos")) +
+  geom_line() +
+  geom_line(aes(x = cantidad, y = costos_variables, 
+                color = "Costos Variables")) +
+  geom_line(aes(x = cantidad, y = costos_totales, 
+                color = "Costos Totales")) +
+  labs(title = "Costos a corto plazo",
+       x = "Cantidad producida",
+       y = "Costo ($)",
+       color = "Tipo de costo") +
+  scale_color_manual(values = c("Costos Fijos" = "blue", 
+                                 "Costos Variables" = "green", 
+                                 "Costos Totales" = "red"))
+```
+
+```{r echo=TRUE, fig.align='center', message=FALSE, warning=FALSE, out.width="90%", paged.print=FALSE}
+# Unimos todos los diagramas para visualizar
+library(gridExtra)
+grid.arrange(p1, p2, p3, p4, ncol = 2, nrow = 2)
+```
+
+Los **costos fijos** incluyen:
+
+* Sueldos del personal administrativo.
+* Depreciación por desgastes y rotura de la maquinaria.
+* Gastos de armonización y reparación de los edificios.
+* Gastos de mantenimiento y depreciacipon (si la hay) de la tierra.
+
+Los **costos variables** incluyen:
+
+* Las materias primas.
+* El costo de la mano de obra directa
+* Gastos corrientes del capital fijo, tales como los de combustible, reparaciones ordinarias y mantenimiento de rutina
+
+A partir de las cuvas de costo total se obtienen las curvas de costo medio. El **costo medio fijo** se obtiene dividiento el $FC$:
+
+\begin{equation}
+FC_{Med} = \frac{FC}{Q}
+\end{equation}
+
+Visualmente es una hipérbola equilátera que en todos sus puntos presenta la misma magnitud.
+
+```{r echo=TRUE, fig.align='center', message=FALSE, warning=FALSE, out.width="70%", paged.print=FALSE}
+# Primero, creamos un conjunto de datos de ejemplo
+cantidad = c(0, 10, 20, 30, 40, 50)
+costos_fijos = c(100, 100, 100, 100, 100, 100)
+costos_fijos_medios = costos_fijos / cantidad
+
+# Ahora creamos un data frame con estos datos
+df <- data.frame(cantidad, costos_fijos_medios)
+
+# Utilizamos ggplot para crear un gráfico de costos
+library(ggplot2)
+ggplot(df, aes(x = cantidad, y = costos_fijos_medios, 
+               color = "Costos Fijos Medios")) +
+  geom_line() +
+  labs(title = "Costos Fijos Medios",
+       x = "Cantidad producida",
+       y = "Costo ($)",
+       color = "Tipo de costo")
+
+```
+
+El **costo medio variable** se obtiene, análogamente, dividiendo los costos medios por el correspondiente nivel de producción.
+
+```{r echo=TRUE, fig.align='center', message=FALSE, warning=FALSE, out.width="70%", paged.print=FALSE}
+# Primero, creamos un conjunto de datos de ejemplo
+cantidad = c(0, 10, 20, 30, 40, 50, 60, 70, 80, 90)
+costos_variables = c(0, 15, 30, 45, 60, 75, 90, 105, 120, 135)
+costos_variables_medios = costos_variables / cantidad
+
+# Ahora creamos un data frame con estos datos
+df = data.frame(cantidad, costos_variables_medios)
+
+# Utilizamos ggplot para crear un gráfico de costos
+library(ggplot2)
+ggplot(df, aes(x = cantidad, y = costos_variables_medios, 
+               color = "Costos Variables Medios")) +
+  geom_line() +
+  labs(title = "Costos Variables Medios",
+       x = "Cantidad producida",
+       y = "Costo ($)",
+       color = "Tipo de costo")
+```
+

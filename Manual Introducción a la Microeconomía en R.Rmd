@@ -1,45 +1,186 @@
 ---
-title: "**MANUAL: INTRODUCCIÓN A LA MICROECONOMÍA EN ```R```**"
-author:
-- Madin Rivera, Alberto.
-date: "`r format(Sys.time(), '%b %d, %Y')`"
-header-includes:
-- \usepackage{fancyhdr}
-- \pagestyle{fancy}
-- \fancyhf{}
-- \fancyhead[RE,LO]{Manual de microeconomía en R}
-- \fancyfoot[CE,CO]{\leftmark}
-- \fancyfoot[LE,RO]{}
-- \fancyfoot[LE,RO]{\thepage}
-- \usepackage{titling}
-- \pretitle{\begin{center}
-- \includegraphics[]{1.png}\LARGE\\}
-- \posttitle{\end{center}}
+title: |
+  \Huge \textbf{Introducción a la Microeconomía Aplicada con R}
+
+subtitle: |
+  \Large Manual Teórico-Práctico para Estudiantes de Economía
+
+author: |
+  \textbf{Alberto Madin Rivera}
+
+date: "`r format(Sys.Date(), '%d de %B de %Y')`"
+
+lang: es-MX
+
+documentclass: book
+
+classoption:
+  - a4paper
+  - oneside
+  - openany
+
+fontsize: 12pt
+
+geometry:
+  - top=2.5cm
+  - bottom=2.5cm
+  - left=3cm
+  - right=2.5cm
+
 output:
   pdf_document:
+    latex_engine: xelatex
     toc: true
-fontsize: 12pt
-lang: es-MX
-documentclass: book
-classoptions: 4paper
-csl: acm-sig-proceedings-long-author-list-csl
-geometry: margin = 2.5cm
-urlcolor: #3498DB
-linkcolor: #3498DB
-link-citations: yes
+    toc_depth: 3
+    number_sections: true
+    fig_caption: true
+    keep_tex: false
+
+header-includes:
+
+  # Idioma y fuentes
+  - \usepackage{fontspec}
+  - \setmainfont{Liberation Serif}
+
+  # Gráficos y tablas
+  - \usepackage{graphicx}
+  - \usepackage{booktabs}
+  - \usepackage{longtable}
+  - \usepackage{float}
+
+  # Hipervínculos
+  - \usepackage{xcolor}
+  - \definecolor{linkblue}{HTML}{1F4E79}
+
+  # Espaciado
+  - \usepackage{setspace}
+  - \onehalfspacing
+
+  # Encabezados y pies
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \fancyhf{}
+  - \fancyhead[LE,RO]{\thepage}
+  - \fancyhead[RE]{\leftmark}
+  - \fancyhead[LO]{Introducción a la Microeconomía con R}
+  - \renewcommand{\headrulewidth}{0.4pt}
+
+  # Formato de capítulos
+  - \usepackage{titlesec}
+  - \titleformat{\chapter}
+      {\normalfont\huge\bfseries}
+      {\thechapter}
+      {20pt}
+      {\Huge}
+
+  # Portada
+  - \usepackage{titling}
+  - \pretitle{\begin{center}
+      \includegraphics[width=0.80\textwidth]{UAM-LOGO.jpg}
+      \vspace{1cm}\\
+    }
+  - \posttitle{\par\end{center}}
+
+  - \preauthor{\begin{center}\large}
+  - \postauthor{\par\end{center}}
+
+  - \predate{\begin{center}}
+  - \postdate{\par\end{center}}
+
+link-citations: true
 ---
 
 # INTRODUCCIÓN
 
-# 2. ¿QUÉ ES LA ECONOMÍA?
+# ¿QUÉ ES LA ECONOMÍA?
 
-La economía es una ciencia social que estudia cómo las personas, empresas y los gobiernos deciden utilizar los recursos escasos para satisfacer sus necesidades y deseos. Se ocupa de cómo se producen, distribuyen y consumen los bienes y servicios dentro de una sociedad.
+La economía es una ciencia social que estudia cómo los individuos, las empresas, los gobiernos y las sociedades en general administran recursos que son limitados o escasos para satisfacer necesidades y deseos que son, en muchos casos, ilimitados. Su objetivo principal es comprender cómo se toman las decisiones relacionadas con la producción, distribución y consumo de bienes y servicios.
 
-La economía se divide en dos ramas principales: la microeconomía y la macroeconomía. La microeconomía se enfoca en el compartimiento individual de los mercados y los agentes económicos, como las empresas y los consummidores, mientras que la macroeconomía se enfoca en el comportambiento de índices agregados de la economía en su conjuntos, como el crecimiento económico, la inflación, el desempleo y el tipo de cambio.
+La existencia de la escasez constituye el problema económico fundamental. Debido a que los recursos disponibles, como el trabajo, el capital, la tierra y la tecnología, son limitados, las personas y las organizaciones deben elegir entre distintas alternativas de uso. Como consecuencia, toda decisión económica implica un costo de oportunidad, es decir, el valor de la mejor alternativa que se sacrifica al tomar una decisión determinada.
 
-La economía es esencial para entender cómo funciona una sociedad y cómo las decisiones económicas afectan a la vida de las personas. Sirve para ayudar a los individuos, empresas y gobiernos a tomar decisiones informadas sobre cómo utilizar los recursos de manera eficiente y para entender cómo las políticas económicas afectan a la sociedad en su conjunto. También es importante el crecimiento económico sostenible y la reducción de la pobreza.
+Un ejemplo cotidiano de escasez puede observarse en un estudiante que dispone de dos horas libres durante la tarde. Si decide dedicar ese tiempo a estudiar microeconomía, no podrá utilizarlo para realizar otra actividad, como trabajar, descansar o practicar algún deporte. La alternativa sacrificada representa el costo de oportunidad de su elección.
 
-# 3. ¿QUÉ ES LA MICROECONOMÍA?
+La economía busca responder tres preguntas fundamentales:
+
+1. **¿Qué producir?**
+   - Determina cuáles bienes y servicios deben elaborarse y en qué cantidades.
+
+2. **¿Cómo producir?**
+   - Analiza los métodos y recursos más eficientes para llevar a cabo la producción.
+
+3. **¿Para quién producir?**
+   - Examina cómo se distribuyen los bienes y servicios entre los diferentes miembros de la sociedad.
+
+## RAMAS PRINCIPALES DE LA ECONOMÍA
+
+Tradicionalmente, la economía se divide en dos grandes áreas de estudio: la microeconomía y la macroeconomía.
+
+### MICROECONOMÍA
+
+La microeconomía estudia el comportamiento individual de los agentes económicos, tales como consumidores, trabajadores, empresas y productores. Analiza cómo estos agentes toman decisiones y cómo interactúan en distintos mercados.
+
+Entre los temas más importantes de la microeconomía se encuentran:
+
+- Teoría del consumidor.
+- Teoría de la empresa.
+- Oferta y demanda.
+- Elasticidades.
+- Estructuras de mercado.
+- Competencia perfecta.
+- Monopolio.
+- Oligopolio.
+- Teoría de juegos.
+- Bienestar económico.
+
+Por ejemplo, la microeconomía puede estudiar cómo afecta un aumento en el precio del café a la cantidad demandada por los consumidores o cómo una empresa decide cuánto producir para maximizar sus ganancias.
+
+### MACROECONOMÍA
+
+La macroeconomía estudia el comportamiento agregado de la economía en su conjunto. En lugar de enfocarse en individuos o empresas específicas, analiza variables globales que afectan a un país o región.
+
+Algunos de los principales temas macroeconómicos son:
+
+- Producto Interno Bruto (PIB).
+- Crecimiento económico.
+- Inflación.
+- Desempleo.
+- Tasas de interés.
+- Política fiscal.
+- Política monetaria.
+- Tipo de cambio.
+- Comercio internacional.
+
+Por ejemplo, la macroeconomía estudia cómo una variación en las tasas de interés del banco central puede influir sobre la inversión, el consumo y el crecimiento económico de un país.
+
+## LA IMPORTANCIA DE LA ECONOMÍA
+
+La economía desempeña un papel fundamental en la vida cotidiana. Aunque muchas personas la asocian únicamente con dinero o mercados financieros, en realidad está presente en casi todas las decisiones que tomamos.
+
+La comprensión de los principios económicos permite:
+
+- Administrar mejor los recursos personales y familiares.
+- Tomar decisiones financieras más informadas.
+- Comprender el funcionamiento de los mercados.
+- Analizar políticas públicas.
+- Evaluar proyectos de inversión.
+- Entender fenómenos como la inflación o el desempleo.
+- Diseñar estrategias empresariales más eficientes.
+
+Asimismo, el análisis económico ayuda a los gobiernos a formular políticas destinadas a promover el crecimiento económico, mejorar la distribución del ingreso y reducir los niveles de pobreza.
+
+## LA ECONOMÍA COMO HERRAMIENTA DE ANÁLISIS
+
+Una característica importante de la economía moderna es el uso de modelos matemáticos y estadísticos para representar situaciones reales de manera simplificada. Estos modelos permiten comprender relaciones entre variables económicas y formular predicciones acerca del comportamiento de los agentes económicos.
+
+Actualmente, herramientas computacionales como **R**, Python y otros lenguajes de programación se han convertido en instrumentos fundamentales para el análisis económico. Mediante estas herramientas es posible procesar grandes volúmenes de información, construir modelos econométricos, elaborar gráficos y realizar simulaciones que facilitan la toma de decisiones basadas en evidencia.
+
+En este manual se utilizará el lenguaje de programación **R** como herramienta principal para ilustrar conceptos microeconómicos mediante ejemplos prácticos, análisis de datos y representaciones gráficas.
+
+> **Idea clave:** La economía estudia cómo las sociedades administran recursos escasos para satisfacer necesidades ilimitadas. Comprender sus principios permite analizar problemas cotidianos, empresariales y gubernamentales desde una perspectiva racional y basada en evidencia.
+
+[^a]: Diversos autores pertenecientes a corrientes heterodoxas han cuestionado algunos supuestos de la economía neoclásica, entre ellos la racionalidad perfecta de los individuos, la disponibilidad completa de información y la tendencia automática de los mercados hacia el equilibrio. Estas críticas han impulsado el desarrollo de enfoques alternativos como la economía conductual, la economía institucional y la economía poskeynesiana.
+
+# ¿QUÉ ES LA MICROECONOMÍA?
 
 La microeconomía es una rama de la economía que se enfoca en el estudio del comportamiento individual de los mercados y los agentes económicos, como las empresas y los consumidores, y cómo interactúan entre sí en una economía de mercado.
 
@@ -55,7 +196,7 @@ Entre los temas que aborda la microeconomía se incluyen:
 
 La microeconomía es esencial para entender cómo funcionan los mercados y cómo las decisiones económicas individuales afectan a la economía en su conjunto. También es importante para ayudar a las empresas a tomar decisiones informadas sobre cómo producir y vender sus productos, y para ayudar a los individuos a tomar decisiones informadas sobre cómo gastar su presupuesto.
 
-# 4. ¿QUÉ ES R RSTUDIO Y CÓMO IMPLEMENTARLOS DENTRO DEL ANÁLISIS MICROECONÓMICO?
+# ¿QUÉ ES R RSTUDIO Y CÓMO IMPLEMENTARLOS DENTRO DEL ANÁLISIS MICROECONÓMICO?
 
 R es un lenguaje de programación y un entorno de desarrollo para análisis estadísticos y gráficos. Es ampliamente utilizado en investigación académica, ciencia de datos y análisis empresarial. R es un software libre y gratuito, lo que significa que está disponible para su uso y modificación sin costo.
 
@@ -67,7 +208,7 @@ En cuanto a su uso en microeconomía, R y RStudio son herramientas muy útiles p
 RMarkdown es útil para crear informes y presentaciones de investigación, donde se puede incluir tanto el texto como los resultados de los análisis realizados con R, de manera ordenada y reproducible.
 Existen muchos paquetes de R específicos para microeconomía, como ```"microeconometrics"``` y ```"econometrics"```, que proporcionan funciones y herramientas específicas para el análisis económico.
 
-# 5. ELEMENTOS DE LA OFERTA Y DEMANDA
+# ELEMENTOS DE LA OFERTA Y DEMANDA
 
 La oferta y la demanda son dos conceptos fundamentales en microeconomía que describen cómo se determinan los precios y las cantidades de bienes y servicios en un mercado.
 
@@ -81,7 +222,7 @@ La oferta y la demanda pueden ser afectadas por una variedad de factores, como e
 
 \newpage
 
-## 5.1 LA CURVA DE LA OFERTA
+## LA CURVA DE LA OFERTA
 
 Se puede utilizar la función `plot()` de base R para graficar la curva de oferta. A continuación, se presenta un ejemplo de código que puede utilizar como base para el diagrama:
 
@@ -107,7 +248,7 @@ En este ejemplo, se crean dos vectores `precios` y `cantidades` que representan 
 
 \newpage
 
-## 5.2 LA CURVA DE LA DEMANDA
+## LA CURVA DE LA DEMANDA
 
 Para  graficar la demanda en `ggplot2`, es similar al proceso de graficar la oferta, primero se necesita tener un conjunto de datos que contenga información sobre el **precio** y la **cantidad** demandada sobre un bien.
 
@@ -134,7 +275,7 @@ En este ejemplo, se crean dos vectores `precios` y `cantidades` que representan 
 
 Para graficar la función de la oferta y demanda, primero se necesita tener dos conjuntos de datos, uno para la oferta y otro para la demanda, que contengan información sobre el **precio** y la **cantidad** correspondiente.
 
-## 5.3 LA CURVA DE LA OFERTA Y LA DEMANDA EN EQUILIBRIO
+## LA CURVA DE LA OFERTA Y LA DEMANDA EN EQUILIBRIO
 
 ```{r echo=TRUE, fig.align='center', message=FALSE, warning=FALSE, out.width="70%", paged.print=FALSE}
 # Cargar el paquete ggplot2
@@ -178,7 +319,7 @@ Con este diagrama se puede ver claramente el punto de equilibrio, es decir, el p
 
 \newpage
 
-## 5.4 EL MODELO MATEMÁTICO DETRÁS DEL EQUILIBRIO DEL MERCADO DE LA OFERTA Y DEMANDA[^a]
+## EL MODELO MATEMÁTICO DETRÁS DEL EQUILIBRIO DEL MERCADO DE LA OFERTA Y DEMANDA[^a]
 
 [^a]:Es importante señalar que estas ecuaciones son una simplificación de la realidad, ya que en un mercado real existen muchos factores que influyen en la oferta, demanda y precio, pero estás ecuaciones permiten comprender el concepto básico del equilibrio del mercado.
 
@@ -234,7 +375,7 @@ La ecuación matemática para representar el punto de equilibrio en términos de
 
 \newpage
 
-## 5.5 FACTORES QUE DESPLACEN LA CURVA DE LA OFERTA
+## FACTORES QUE DESPLACEN LA CURVA DE LA OFERTA
 
 Los cambios en la cantidad ofrecida de un bien o servicio a diferentes precios, sin cambios en el precio del bien o servicio llega a realizar desplazamientos en la curva de la oferta, sea negativo o positivo.
 
@@ -295,7 +436,7 @@ ggplot() +
 
 En este código se crean tres conjuntos de datos: uno para la curva de oferta original, otro para el desplazamiento positivo y otro para el desplazamiento negativo. Luego se utiliza `ggplot2` para graficar las tres curvas en un mismo diagrama, utilizando diferentes colores y tipos de líneas para diferenciarlas. También se utilizan las funcipnes `geom_segment()` para agregar flechas a los puntos de desplazamientos indicando si es positivo o negativo.
 
-## 5.6 FACTORES QUE DESPLACEN LA CURVA DE DEMANDA
+## FACTORES QUE DESPLACEN LA CURVA DE DEMANDA
 
 Un **desplazamiento positivo** a la **curva de demanda** se produce cuando el precio de un bien aumenta y la cantidad demandada del bien disminuye. Esto puede ser causado por un aumento en el precio de sustitutos, un aumento en el ingreso de los consumidores, o un cambio en las preferencias de los consumidores hacia el bien.
 
@@ -404,7 +545,7 @@ En resumen, la oferta y la demanda son los dos pilares fundamentales de la micro
 
 \newpage
 
-# 6. TEORÍA DEL COMPORTAMIENTO DEL CONSUMIDOR
+# TEORÍA DEL COMPORTAMIENTO DEL CONSUMIDOR
 
 Esta parte de la microeconomía que estudia cómo los individuos, familias y hogares toman decisiones de compra en función de sus ingresos, preferencias y restricciones presupuestarias. El modelo económico tradicional del comportamiento del consumidor se basa en la **teoría de la utilidad**, la cual sugiere que **los consumidores buscan maximizar su utilidad o bienestar subjetivo al elegir qué bienes y servicios desean adquirir**.
 
@@ -414,7 +555,7 @@ El comportamiento del consumidor se puede analizar mediante la **curva de indife
 
 \newpage
 
-## 6.1 LA TEORÍA CARDINAL DEL CONSUMIDOR
+## LA TEORÍA CARDINAL DEL CONSUMIDOR
 
 La teoría cardinal de la utilidad es un enfoque que ayuda a medir la utilidad o bienestar subjetivo que un consumidor obtiene de los bienes y servicios que adquiere. Según esta teoría, la utilidad de un bien o servicio es una función de la cantidad de ese bien o servicio que el consumidor posee.
 
@@ -430,7 +571,7 @@ La maximización del consumidor se lleva a cabo mediante la ecuación de la elec
 
 Donde $UMg_{i}$ es la tasa marginal de sustitución entre dos bienes $i$ y $j$, y $P_{i}$ es el precio del bien $i$. **El consumidor maximizará su utilidad cuando la tasa marginal de sustitución entre dos bienes sea igual para todos los bienes en su canasta de consumo**.
 
-## 6.2 DEDUCCIÓN DE LA CURVA DE DEMANDA DEL CONSUMIDOR
+## DEDUCCIÓN DE LA CURVA DE DEMANDA DEL CONSUMIDOR
 
 La teoría cardinal de la utilidad se refiere a la forma en que los individuos asignan valor a diferentes bienes y servicios, y cómo esa asignación de valor afecta su comportamiento de compra. La ecuación básica de esta teoría es la ley de la demanda, que establece que la cantidad demandada de un bien es inversamente proporcional al precio del bien, siempre y cuando todos los demás factores permanezcan constantes. La ecuación matemática de la **ley de la demanda del consumidor** es:
 
@@ -482,7 +623,7 @@ La curva se muestra como una línea concava que se ajusta a los puntos de los da
 
 \newpage
 
-## 6.3 PUNTO DE EQUILIBRIO DEL CONSUMIDOR
+## PUNTO DE EQUILIBRIO DEL CONSUMIDOR
 
 El punto de equilibrio del consumidor se encuentra cuando su curva de utilidad máxima se cruza con su curva de presupuesto. La ecuación utilizada para encontrar este punto de equilibrio es la ecuación de la curva de presupuesto: $Px_{x} + Py_{y} = m$ (donde $Px$ es el precio del bien $x$, $x$ es la cantidad del bien $x$ demandada, $Py$ es el precio del bien $y$, $y$ es la cantidad del bien $y$ demandada, y $m$ es el ingreso del consumidor).
 
@@ -512,25 +653,25 @@ En este ejemplo, se crea un dataframe con datos ficticios de una curva de utilid
 
 Para graficar el punto de equilibrio, se puede agregar un punto en el gráfico en el lugar del punto de intersección entre la curva de utilidad y la curva de presupuesto, utilizando `geom_point()` y especificando las coordenadas del punto de equilibrio en el dataframe.
 
-## 6.4 CAMBIOS EN LOS DESPLAZAMIENTOS DE LA CURVA DE INDIFERENCIA
+## CAMBIOS EN LOS DESPLAZAMIENTOS DE LA CURVA DE INDIFERENCIA
 
 Las curvas de indiferencia se desplazan positivo o negativo debido a cambios en los factores que afectan la utilidad del consumidor, como el ingreso o los precios de los bienes. Un aumento en el ingreso del consumidor, por ejemplo, dará lugar a curvas de indiferencia más elevadas y más amplias, mientras que un aumento en el precio de un bien dará lugar a curvas de indiferencia más estrechas y más bajas.
 
-### 6.4.1 CRÍTICA A LA CURVA DE INDIFERENCIA Y LA UTILIDAD MÁXIMA DEL CONSUMIDOR
+### CRÍTICA A LA CURVA DE INDIFERENCIA Y LA UTILIDAD MÁXIMA DEL CONSUMIDOR
 
 La crítica negativa a la curva de indiferencia y a la utilidad máxima del consumidor es que la teoría asume que el consumidor es racional y siempre busca maximizar su utilidad. Sin embargo, en la realidad, los consumidores no siempre actúan de manera racional y pueden tener preferencias cambiantes o ser influenciados por factores externos. Además, la teoría también asume que el consumidor tiene información completa y precisa sobre los productos disponibles y sus precios, lo cual no siempre es el caso en la realidad. Por lo tanto, esta teoría no siempre es un reflejo preciso del comportamiento real del consumidor.
 
 Una de las críticas a la hipótesis de preferencias del consumidor es que asume que el consumidor tiene preferencias estables y ordenadas, lo que no siempre es cierto en la vida real. También se cuestiona la posibilidad de medir la utilidad de un bien o servicio de manera objetiva y cuantificable. Otro aspecto crítico es la imposibilidad de representar en una curva de indiferencia todos los aspectos subjetivos y cambiantes de la preferencia del consumidor. En este sentido, la teoría de la elección racional ha sido criticada por los economistas heterodoxos y por algunas corrientes de la psicología económica.
 
-## 6.5 EL EXCEDENTE DEL CONSUMIDOR
+## EL EXCEDENTE DEL CONSUMIDOR
 
 El excedente del consumidor es la diferencia entre el valor que el consumidor asigna a un bien o servicio y el precio que debe pagar por él. Se mide como la diferencia entre el valor máximo que el consumidor estaría dispuesto a pagar y el precio real del bien o servicio. El excedente del consumidor es un indicador de la eficiencia del mercado y refleja el bienestar del consumidor. Un excedente del consumidor más alto indica que el consumidor está obteniendo un valor mayor de lo que está pagando, mientras que un excedente del consumidor más bajo indica que el consumidor está pagando más de lo que el bien o servicio le está proporcionando en términos de valor.
 
-### 6.5.1 EL EXCEDENTE DEL PRODUCTOR
+### EL EXCEDENTE DEL PRODUCTOR
 
 Una medición alternativa del excedente del consumidor es el llamado excedente del productor, también conocido como excedente del mercado, que se mide como la diferencia entre el precio de mercado y el costo de producir un bien o servicio. Este excedente del productor es igual al excedente del consumidor, ya que el excedente total del mercado es la suma del excedente del consumidor y el excedente del productor.
 
-### 6.5.2 ANÁLISIS DE LAS CURVAS DE INDIFERENCIA CON LA TEORÍA DEL INTERCAMBIO DENTRO DE LA CAJA DE EDGEWODTH
+### ANÁLISIS DE LAS CURVAS DE INDIFERENCIA CON LA TEORÍA DEL INTERCAMBIO DENTRO DE LA CAJA DE EDGEWODTH
 
 La teoría del intercambio en la caja de Edgeworth se utiliza para analizar cómo los individuos seleccionan los bienes que desean consumir, en función de sus preferencias y de los precios de los bienes. La idea principal es que el individuo tiene una cierta cantidad de recursos disponibles, representada por una "caja" y que tiene que elegir cómo distribuir esos recursos entre diferentes bienes para maximizar su utilidad.
 
@@ -567,7 +708,7 @@ p2 = ggplot(data_agg, aes(y = price, x = quantity)) +
 grid.arrange(p1, p2, ncol = 2, nrow = 2)
 ```
 
-## 6.6 ELASTICIDAD-PRECIO DE LA DEMANDA
+## ELASTICIDAD-PRECIO DE LA DEMANDA
 
 La elasticidad-precio de la demanda es una medida de la sensibilidad de la cantidad demandada de un bien o servicio a los cambios en su precio. Se calcula como la relación entre el porcentaje de cambio en la cantidad demandada y el porcentaje de cambio en el precio. Una demanda es elástica si un cambio en el precio provoca un cambio mayor en la cantidad demandada, mientras que una demanda es inelástica si un cambio en el precio provoca un cambio menor en la cantidad demandada. La elasticidad-precio de la demanda es una herramienta importante para las empresas al determinar cómo los cambios en los precios afectarán sus ingresos y utilidades.
 
@@ -589,13 +730,13 @@ Donde:
 * **Elasticidad negativa**: Una elasticidad negativa significa que un cambio en el precio resulta en un cambio opuesto en la cantidad demandada. Por ejemplo, si el precio aumenta en un 1%, la cantidad demandada aumentaría.
 * **Elasticidad infinitamente negativa**: Una elasticidad infinitamente negativa significa que cualquier cambio en el precio resulta en un cambio igualmente pequeño en la cantidad demandada. Por ejemplo, si el precio aumenta en un 1%, la cantidad demandada aumentaría solo ligeramente.
 
-# 7. TEORÍA DE LA PRODUCCIÓN MICROECONÓMICA
+# TEORÍA DE LA PRODUCCIÓN MICROECONÓMICA
 
 La teoría de la producción en microeconomía se refiere al estudio de cómo las empresas deciden qué cantidad de bienes y servicios producir con los recursos limitados disponibles. Sirve para entender cómo las empresas toman decisiones sobre cómo asignar los recursos para maximizar su ganancia o su utilidad. La teoría de la producción también ayuda a analizar cómo las empresas responden a cambios en los precios de los factores de producción y cómo esto afecta a la producción y los precios de los bienes y servicios. También es utilizado para analizar cómo las empresas adopten nuevas tecnologías y cómo esto afecta a la eficiencia productiva y los costos.
 
 \newpage
 
-## 7.1  FUNCIÓN DE PRODUCCIÓN PARA UN PRODUCTO ÚNICO
+## FUNCIÓN DE PRODUCCIÓN PARA UN PRODUCTO ÚNICO
 
 La función de producción para un producto único es una ecuación matemática que describe cómo los factores de producción (como el trabajo y los recursos naturales) se relacionan con la cantidad producida de ese producto. Esta función puede ser lineal o no lineal, y puede ser utilizada para analizar cómo cambios en los factores de producción afectan la producción total, así como para optimizar la producción en términos de costos y eficiencia. En la teoría de producción se utiliza para estudiar cómo las empresas y los productores eligen qué producir, con qué factores de producción y a qué escala.
 
@@ -615,7 +756,7 @@ La función de producción es una relación matemática entre la cantidad produc
 
 [^c]:Es importante mencionar que esta es solo una representación simple de la función de producción, la cual puede ser representada de diferentes formas y con diferentes niveles de complejidad dependiendo del contexto.
 
-## 7.2 LA FUNCIÓN COBB-DOUGLAS
+## LA FUNCIÓN COBB-DOUGLAS
 
 La función Cobb.Douglas es una función de producción que se utiliza para modelar cómo los factores de producción (trabajo y capital) afectan a la producción. La forma general de la función es:
 
@@ -653,11 +794,11 @@ persp(K, L, y, theta = 30, phi = 30,
 
 En este ejemplo, primero se define la función Cobb-Douglas, luego se asignan valores a los parámetros de la función ($A$, $\alpha$, $\beta$) y se crea un rango de valores para los factores de producción ($K$ y $L$). A continuación, se usa la función `outer()` para calcular los valores de la producción para cada combinación de factores y finalmente se usa la función `persp()` para graficar la función dentr de un diagrama de perspectiva en 3 dimensiones.
 
-### 7.2.1 DESPLAZAMIENTO DE LA CURVA COBB-DOUGLAS
+### DESPLAZAMIENTO DE LA CURVA COBB-DOUGLAS
 
 La curva Cobb-Douglas se desplaza hacia arriba o hacia abajo dependiendo del nivel de productividad del trabajo y del capital. Si la productividad del trabajo y del capital aumenta, entonces la curva Cobb-Douglas se desplazará hacia arriba, lo que indica que se pueden producir más bienes con el mismo nivel de trabajo y capital. Si la productividad del trabajo y del capital disminuye, entonces la curva Cobb-Douglas se desplazará hacia abajo, lo que indica que se pueden producir menos bienes con el mismo nivel de trabajo y capital.
 
-## 7.3 CRÍTICA A LAS CURVAS DE ISOCUANTA Y LA FUNCIÓN COBB-DOUGLAS
+## CRÍTICA A LAS CURVAS DE ISOCUANTA Y LA FUNCIÓN COBB-DOUGLAS
 
 Una crítica común a las curvas de isocuanta y la función Cobb-Douglas es que asumen que los factores de producción son sustitutos perfectos entre sí. Sin embargo, en la vida real, esto no siempre es el caso. Por ejemplo, el trabajo y el capital a menudo no son sustitutos perfectos, ya que el trabajo a menudo es especializado y el capital es generalizado.
 
@@ -667,7 +808,7 @@ Además, las curvas de isocuanta y la función Cobb-Douglas también asumen una 
 
 Por último, las curvas de isocuanta y la función Cobb-Douglas no tienen en cuenta los efectos ambientales y sociales de la producción. Sin embargo, estos efectos son cada vez más importantes en la toma de decisiones de producción.
 
-## 7.4 MINIMIZACIÓN DE LOS COSTOS A UN NIVEL DADO DE PRODUCCIÓN
+## MINIMIZACIÓN DE LOS COSTOS A UN NIVEL DADO DE PRODUCCIÓN
 
 La minimización de los costos a un nivel dado de producción se logra a través de la utilización óptima de los recursos productivos disponibles. Esto significa que los productores deben elegir la combinación óptima de factores de producción (trabajo, capital, tierra, etc.) para producir un nivel específico de bienes y servicios. La curva de isocosto se utiliza para representar esta relación entre los costos y la producción, mientras que la función Cobb-Douglas se utiliza para describir la relación entre los factores de producción y la producción. En equilibrio, el productor elegirá la combinación de factores de producción que minimice los costos a un nivel dado de producción.
 
@@ -697,11 +838,11 @@ cloud(costs ~ x1 * x2, data = data,
 
 El código anterior grafica la superficie de costos para los niveles de producción $x_{1}$ y $x_{2}$, donde se asume que los costos son $x_{1}^{2} + x_{2}^{2}$. Esta superficie muestra cómo los costos cambian a medida que los niveles de producción $x_{1}$ y $x_{2}$ cambian. El punto en la superficie donde los costos son mínimos representan el nivel de producción óptimo para minimizar los costos.
 
-## 7.5 ELECCIÓN DEL SENDERO ÓPTIMO DE EXPANSIÓN
+## ELECCIÓN DEL SENDERO ÓPTIMO DE EXPANSIÓN
 
 La elección del sendero óptimo de expansión se refiere a la selección de la combinación óptima de factores de producción y tecnología para alcanzar un nivel de producción deseado. En microeconomía, la función de producción Cobb-Douglas puede utilizarse para analizar esta elección. Esta función permite modelar la relación entre los factores de producción y la producción, y la curva de isocosto se utiliza para analizar cómo los cambios en los precios de los factores de producción afectan la elección de la combinación óptima de factores. La elección del sendero óptimo de expansión también puede analizarse mediante programación lineal, donde se busca minimizar los costos para alcanzar un nivel dado de producción.
 
-### 7.5.1 EQUILIBRIO EN CORTO PLAZO
+### EQUILIBRIO EN CORTO PLAZO
 
 En el corto plazo, la elección del sendero óptimo de expansión puede ser limitada debido a la falta de recursos o a restricciones físicas. Por lo tanto, la empresa puede tener que optar por utilizar alternativas menos eficientes para aumentar la producción. 
 
@@ -740,7 +881,7 @@ ggplot() +
 
 ```
 
-###  7.5.2 EQUILIBRIO EN LARGO PLAZO
+###  EQUILIBRIO EN LARGO PLAZO
 
 En el largo plazo, las empresas tienen más tiempo para planificar y adquirir los recursos necesarios para seguir un sendero óptimo de expansión. Pueden invertir en nuevos equipos o capacitación para los empleados, o expandirse a nuevos mercados, lo que les permite seguir un sendero de expansión más eficiente.
 
@@ -765,7 +906,7 @@ ggplot(data, aes(x = produccion, y = costos_totales)) +
 
 \newpage
 
-## 7.6 FUNCIÓN DE PRODUCCIÓN DE UNA EMPRESA DE PRODUCTOS MÚLTIPLES
+## FUNCIÓN DE PRODUCCIÓN DE UNA EMPRESA DE PRODUCTOS MÚLTIPLES
 
 La función de producción de una empresa de productos múltiples se refiere a la relación entre los factores (trabajo, capital, etc) y los bienes (los diferentes productos) de la empresa. La forma matemática más común para expresar esta relación es mediante la **función de producción de Leontief**[^d], también conocida como función de producción de insumo-producto. Esta función se representa mediante una matriz de coeficientes técnicos de producción ($A$), donde cada fila representa un factor y cada columna representa un bien, y un vector de factores ($X$) y un vector de bienes ($Y$). La ecuación matemática es la siguiente:
 
@@ -777,7 +918,7 @@ Y = AX
 
 Donde $Y$ es el vector de bienes, $X$ es el vector de factores, y $A$ es la matriz de coeficientes técnicos de producción. Los coeficientes técnicos de producción representan la cantidad de cada factor necesario para producir una unidad de cada bien.
 
-### 7.6.1 CURVA DE ISOINGRESO DE LA EMPRESA MULTIPRODUCTIVA
+### CURVA DE ISOINGRESO DE LA EMPRESA MULTIPRODUCTIVA
 
 La curva de isoingreso de una empresa multiproductiva es una representación gráfica de las diferentes combinaciones de producción de dos o más bienes que puede obtener una empresa con un nivel de ingreso fijo. La curva se traza en un diagrama de coordenadas cartesianas con la producción de un bien en el eje x y la producción del otro bien en el eje y. La curva es una línea recta que pasa por el punto de máxima producción posible y tiene una pendiente negativa. Esto se debe a que a medida que la empresa aumenta la producción de un bien, debe disminuir la producción del otro bien debido a la escasez de recursos. La curva de isoingreso de una empresa multiproductiva es una herramienta útil para analizar cómo una empresa utiliza sus recursos para producir diferentes bienes y cómo esto afecta su ingreso.
 
@@ -811,7 +952,7 @@ En resumen, la teoría de producción es una herramienta valiosa para entender c
 
 \newpage
 
-#  8. TEORÍA DE COSTOS
+#  TEORÍA DE COSTOS
 
 La teoría de costos en microeconomía estudia cómo las empresas toman decisiones sobre la producción y cómo estas decisiones afectan los costos y los precios de los bienes y servicios. La teoría de costos se divide en dos tipos: costos de corto plazo y costos de largo plazo. Los costos de corto plazo son aquellos que una empresa enfrenta en el corto plazo y no pueden ser modificados, mientras que los costos de largo plazo son aquellos que una empresa puede cambiar a través de decisiones de inversión a largo plazo.
 
@@ -823,7 +964,7 @@ La teoría de costos también se relaciona con la teoría de la producción, ya 
 
 \newpage
 
-## 8.1 NOTA GENERAL DE LA TEORÍA DE COSTOS
+## NOTA GENERAL DE LA TEORÍA DE COSTOS
 
 La función matemática que se utiliza para descirbir esta relación es la función de costos total ($TC$), la función de costo variable ($VC$), la función de costo fijo ($FC$) y la función de costo medio ($AC$).
 
@@ -858,7 +999,7 @@ En este caso, se está graficando la función de costo total en azul, el costo v
 
 \newpage
 
-## 8.2 TEORÍA DE COSTOS TRADICIONALES A CORTO PLAZO
+## TEORÍA DE COSTOS TRADICIONALES A CORTO PLAZO
 
 La teoría de costos tradicionales a corto plazo es un concepto clave economía que describe cómo una empresa determina su producción óptima y sus costos en un periodo de tiempo limitado. Según esta teoría, en el corto plazo, algunos factores son fijos y no pueden ser ajustados para responder a las fluctuaciones de la demanda. Otros factores, como el trabajo y los materiales, son variables y pueden ser ajustados. Esta teoría se concentra en cómo los costos totales cambian a medida que la producción varía y cómo la empresa puede maximizar su ganancia produciendo la cantidad óptima de bienes.
 

@@ -29,7 +29,7 @@ linkcolor: #3498DB
 link-citations: yes
 ---
 
-# 1. INTRODUCCIÓN
+# INTRODUCCIÓN
 
 # 2. ¿QUÉ ES LA ECONOMÍA?
 

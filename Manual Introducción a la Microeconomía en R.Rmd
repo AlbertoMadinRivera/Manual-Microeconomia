@@ -12,7 +12,6 @@ date: "`r format(Sys.Date(), '%d de %B de %Y')`"
 
 lang: es-MX
 
-
 documentclass: book
 
 classoption:
@@ -183,43 +182,155 @@ En este manual se utilizará el lenguaje de programación **R** como herramienta
 
 # ¿QUÉ ES LA MICROECONOMÍA?
 
-La microeconomía es una rama de la economía que se enfoca en el estudio del comportamiento individual de los mercados y los agentes económicos, como las empresas y los consumidores, y cómo interactúan entre sí en una economía de mercado.
+La microeconomía aborda diversos temas orientados al análisis del comportamiento de consumidores y empresas, así como al estudio de las diferentes estructuras de mercado. En este manual se desarrollarán los fundamentos teóricos que permiten comprender la toma de decisiones económicas y la determinación de precios y cantidades en los mercados.
 
-La microeconomía estudia cómo las personas y las empresas toman decisiones sobre cómo producir y consumir bienes y servicios, y cómo estas decisiones afectan a los precios y a la producción en los mercados. También se ocupa de cómo los mercados funcionan y cómo se determinan los precios de los bienes y servicios.
+## PRINCIPALES ÁREAS DE ESTUDIO
 
-Entre los temas que aborda la microeconomía se incluyen:
+La microeconomía aborda diversos temas fundamentales para comprender el funcionamiento de los mercados y el comportamiento de los agentes económicos. En este manual se estudiarán los siguientes temas:
 
-* La teoría de la elección del consumidor: cómo las personas deciden qué comprar con su presupuesto limitado.
-* La teoría de la producción: cómo las empresas deciden qué producir y cómo producirlo.
-* La teoría de los mercados: cómo los precios y la producción se determinan en los mercados de bienes y servicios.
-* La teoría de la distribución: cómo se distribuye la riqueza y el ingreso en una economía.
-* La teoría de los juegos: cómo las personas y las empresas interactúan y toman decisiones en situaciones de incertidumbre y competencia.
+### TEORÍA DE LA DEMANDA (TEORÍA DEL CONSUMIDOR)
 
-La microeconomía es esencial para entender cómo funcionan los mercados y cómo las decisiones económicas individuales afectan a la economía en su conjunto. También es importante para ayudar a las empresas a tomar decisiones informadas sobre cómo producir y vender sus productos, y para ayudar a los individuos a tomar decisiones informadas sobre cómo gastar su presupuesto.
+Analiza el comportamiento de los consumidores y la manera en que distribuyen su ingreso entre distintos bienes y servicios con el objetivo de maximizar su satisfacción, considerando las restricciones presupuestarias existentes.
 
-# ¿QUÉ ES R RSTUDIO Y CÓMO IMPLEMENTARLOS DENTRO DEL ANÁLISIS MICROECONÓMICO?
+### TEORÍA DE LA PRODUCCIÓN
 
-R es un lenguaje de programación y un entorno de desarrollo para análisis estadísticos y gráficos. Es ampliamente utilizado en investigación académica, ciencia de datos y análisis empresarial. R es un software libre y gratuito, lo que significa que está disponible para su uso y modificación sin costo.
+Estudia cómo las empresas combinan los factores productivos para transformar insumos en bienes y servicios, buscando alcanzar niveles eficientes de producción.
 
-RStudio es una interfaz de usuario para R que proporciona una variedad de herramientas para facilitar el desarrollo de scripts en R. Incluye un editor de código, una ventana de consola, una vista de archivos y una vista de salida. Además, RStudio también ofrece un conjunto de herramientas adicionales para la visualización de datos, la creación de informes y la colaboración.
+### TEORÍA DE COSTOS
 
-RMarkdown es un formato de documento que combina texto enriquecido con elementos de código R. Puede ser utilizado para crear informes, presentaciones y libros electrónicos con una variedad de formatos de salida, incluyendo HTML, PDF y Word. Uno de los beneficios de RMarkdown es que permite ejecutar el código R directamente en el documento y mostrar los resultados en el mismo documento, lo que facilita la creación de informes reproducibles y transparentes.
+Examina la estructura de costos de las empresas y su relación con las decisiones de producción. Incluye el análisis de costos fijos, variables y totales, así como los enfoques tradicionales y modernos sobre la gestión de costos empresariales.
 
-En cuanto a su uso en microeconomía, R y RStudio son herramientas muy útiles para la investigación y el análisis de datos en microeconomía. Pueden ser utilizados para analizar y visualizar datos de mercado, para estimar modelos económicos y para simular escenarios económicos.
-RMarkdown es útil para crear informes y presentaciones de investigación, donde se puede incluir tanto el texto como los resultados de los análisis realizados con R, de manera ordenada y reproducible.
-Existen muchos paquetes de R específicos para microeconomía, como ```"microeconometrics"``` y ```"econometrics"```, que proporcionan funciones y herramientas específicas para el análisis económico.
+### TEORÍA DE LA COMPETENCIA PERFECTA
 
-# ELEMENTOS DE LA OFERTA Y DEMANDA
+Analiza el funcionamiento de los mercados caracterizados por un gran número de compradores y vendedores, productos homogéneos, libre entrada y salida de empresas, e información perfecta.
 
-La oferta y la demanda son dos conceptos fundamentales en microeconomía que describen cómo se determinan los precios y las cantidades de bienes y servicios en un mercado.
+### TEORÍA DEL MONIPOLIO
 
-La oferta se refiere a la cantidad de un bien o servicio que los productores están dispuestos a proporcionar a diferentes niveles de precio. La curva de oferta describe cómo varía la cantidad ofrecida de un bien en función del precio. A medida que el precio aumenta, los productores están más dispuestos a proporcionar más unidades del bien, y viceversa.
+Estudia las condiciones bajo las cuales una sola empresa controla la oferta de un bien o servicio, así como los efectos de su poder de mercado sobre precios, producción y bienestar económico.
 
-La demanda se refiere a la cantidad de un bien o servicio que los consumidores están dispuestos a comprar a diferentes niveles de precio. La curva de demanda describe cómo varía la cantidad demandada de un bien en función del precio. A medida que el precio aumenta, los consumidores están menos dispuestos a comprar unidades del bien, y viceversa.
+### TEORÍA DEL OLIGOPOLIO
 
-La interacción entre la oferta y la demanda determina el precio y la cantidad de un bien o servicio en un mercado. El equilibrio de mercado se alcanza cuando la cantidad ofrecida se iguala a la cantidad demandada, y este equilibrio se refleja en el precio de mercado.
+Examina los mercados dominados por un pequeño número de empresas interdependientes. Se estudian modelos de duopolio, estrategias competitivas y formas de colusión empresarial, como los cárteles.
 
-La oferta y la demanda pueden ser afectadas por una variedad de factores, como el precio de los insumos, la tecnología, los impuestos y los subsidios, las expectativas del consumidor y el precio de los bienes sustitutos. Además, existen diferentes tipos de mercados, como el mercado competitivo, el monopolio y el oligopolio, cada uno con sus propias características y dinámicas de oferta y demanda.
+# ¿QUÉ SON R, RSTUDIO Y R MARKDOWN Y CÓMO PUEDEN APLICARSE AL ANÁLISIS MICROECONÓMICO?
+
+La economía moderna se apoya cada vez más en herramientas computacionales que permiten analizar información, construir modelos y comunicar resultados de manera eficiente y reproducible. Entre estas herramientas, **R**, **RStudio** y **R Markdown** se han consolidado como estándares ampliamente utilizados en la investigación académica, la ciencia de datos y el análisis económico.
+
+## R: LENGUAJE DE PROGRAMACIÓN PARA EL ANÁLISIS ECONÓMICO
+
+**R** es un lenguaje de programación especializado en análisis estadístico, modelación matemática y visualización de datos. Al ser un software libre y de código abierto, ofrece una amplia gama de funciones para la manipulación de datos, la estimación de modelos econométricos y la generación de gráficos de alta calidad.
+
+Dentro del ámbito económico, R permite procesar grandes volúmenes de información, realizar análisis descriptivos e inferenciales, estimar modelos de comportamiento económico y evaluar relaciones entre variables de interés mediante técnicas estadísticas y econométricas.
+
+## RSTUDIO: ENTORNO DE DESARROLLO INTEGRADO
+
+**RStudio** es un entorno de desarrollo integrado (IDE) diseñado para facilitar el trabajo con R. Proporciona una interfaz amigable que reúne en una misma ventana las herramientas necesarias para programar, ejecutar código, administrar archivos y visualizar resultados.
+
+Entre sus principales características destacan:
+
+- Editor avanzado de scripts.
+- Consola interactiva para la ejecución de código.
+- Administrador de proyectos.
+- Visualización de gráficos y resultados.
+- Gestión de paquetes y bibliotecas.
+- Integración con sistemas de control de versiones.
+- Compatibilidad con documentos reproducibles mediante R Markdown.
+
+Gracias a estas características, RStudio se ha convertido en una de las plataformas más utilizadas para la enseñanza y la investigación cuantitativa en economía.
+
+## R MARKDOWN: DOCUMENTOS REPRODUCIBLES
+
+**R Markdown** es un sistema de creación de documentos que combina texto, fórmulas matemáticas, tablas, gráficos y código ejecutable dentro de un mismo archivo.
+
+Su principal ventaja consiste en permitir que los análisis y sus resultados se encuentren integrados en un único documento. De esta manera, cualquier modificación en los datos o en los modelos puede actualizar automáticamente los resultados, garantizando transparencia, trazabilidad y reproducibilidad en el proceso de investigación.
+
+Los documentos elaborados en R Markdown pueden exportarse a múltiples formatos, entre ellos:
+
+- PDF
+- HTML
+- Microsoft Word
+- Presentaciones académicas
+- Libros electrónicos
+- Sitios web interactivos
+
+## APLICACIONES EN EL ANÁLISIS MICROECONÓMICO
+
+Las herramientas R, RStudio y R Markdown poseen una amplia variedad de aplicaciones dentro de la microeconomía. Entre las más relevantes se encuentran:
+
+- Análisis de demanda y comportamiento del consumidor.
+- Estimación y representación gráfica de funciones económicas.
+- Análisis de costos y producción empresarial.
+- Simulación de estructuras de mercado.
+- Evaluación de modelos de competencia perfecta, monopolio y oligopolio.
+- Construcción de indicadores económicos.
+- Elaboración de reportes académicos y profesionales reproducibles.
+
+Asimismo, R dispone de numerosos paquetes especializados para el análisis económico y econométrico, tales como `AER`, `fixest`, `plm`, `lmtest`, `ggplot2`, `microbenchmark`, `dplyr` y `tidyverse`, los cuales facilitan la investigación empírica y la evaluación de fenómenos económicos.
+
+## IMPORTANCIA PARA LA FORMACIÓN DEL ECONOMISTA
+
+El dominio de R y RStudio proporciona al estudiante de economía herramientas fundamentales para desarrollar competencias cuantitativas, mejorar la capacidad de análisis y adoptar estándares modernos de investigación reproducible. Su utilización permite integrar teoría económica, evidencia empírica y comunicación de resultados en un mismo flujo de trabajo, fortaleciendo tanto la formación académica como el desempeño profesional.
+
+[^a1]: En la actualidad, RStudio constituye una de las plataformas más utilizadas para la enseñanza de métodos cuantitativos en economía debido a su facilidad de uso, flexibilidad y capacidad para promover la investigación reproducible. Diversas universidades y centros de investigación complementan su enseñanza mediante metodologías *hands-on*, las cuales privilegian el aprendizaje práctico a través de ejercicios, estudios de caso y proyectos aplicados. Este enfoque permite que los estudiantes desarrollen habilidades analíticas mediante la resolución de problemas reales utilizando datos económicos y herramientas computacionales modernas.
+
+# ELEMENTOS DE LA OFERTA Y LA DEMANDA
+
+La **oferta** y la **demanda** constituyen los pilares fundamentales del análisis microeconómico, ya que permiten explicar la determinación de los precios y las cantidades de equilibrio en los mercados de bienes y servicios. Su estudio proporciona las bases para comprender el comportamiento de consumidores y productores dentro de una economía de mercado.
+
+## LA OFERTA
+
+La oferta representa la relación existente entre los diferentes niveles de precio de un bien o servicio y las cantidades que los productores están dispuestos y son capaces de colocar en el mercado durante un período determinado, manteniendo constantes los demás factores relevantes (*ceteris paribus*).
+
+Esta relación se expresa mediante la **curva de oferta**, la cual muestra que, en términos generales, existe una relación directa entre precio y cantidad ofrecida. En consecuencia, un incremento en el precio de mercado incentiva a los productores a aumentar la producción y la comercialización del bien, mientras que una disminución del precio reduce la cantidad ofrecida.
+
+## LA DEMANDA
+
+La demanda describe la relación entre los distintos niveles de precio de un bien o servicio y las cantidades que los consumidores están dispuestos y pueden adquirir en un período específico, suponiendo constantes los demás determinantes de la demanda.
+
+Dicha relación se representa mediante la **curva de demanda**, la cual refleja una relación inversa entre el precio y la cantidad demandada. Por lo tanto, cuando el precio de un bien aumenta, la cantidad demandada tiende a disminuir; por el contrario, cuando el precio disminuye, la cantidad demandada tiende a incrementarse.
+
+## EQUILIBRIO DEL MERCADO
+
+La interacción entre la oferta y la demanda da origen al **equilibrio de mercado**, situación en la que la cantidad que los productores desean vender coincide con la cantidad que los consumidores desean comprar.
+
+El punto de equilibrio determina simultáneamente:
+
+- El **precio de equilibrio**.
+- La **cantidad de equilibrio**.
+
+En esta situación no existen presiones para que el precio cambie, ya que las decisiones de compra y venta son compatibles entre sí.
+
+## FACTORES DETERMINANDTES DE LA OFERTA Y LA DEMANDA
+
+Además del precio del propio bien, existen diversas variables que pueden modificar la posición de las curvas de oferta y demanda.
+
+### DETERMINANTES DE LA OFERTA
+
+Entre los principales factores que afectan la oferta se encuentran:
+
+- Costos de producción e insumos.
+- Nivel tecnológico.
+- Impuestos y subsidios.
+- Número de empresas participantes en el mercado.
+- Expectativas de los productores.
+- Condiciones climáticas y factores externos.
+
+### DETERMINANTES DE LA DEMANDA
+
+Los principales factores que influyen sobre la demanda son:
+
+- Ingreso de los consumidores.
+- Preferencias y gustos.
+- Precio de bienes sustitutos.
+- Precio de bienes complementarios.
+- Expectativas sobre precios futuros.
+- Tamaño y composición de la población.
+
+## OFERTA, DEMANDA Y ESTRUCTURA DEL MERCADO
+
+El funcionamiento de la oferta y la demanda puede variar dependiendo de la estructura de mercado analizada. En mercados de **competencia perfecta**, los agentes individuales carecen de poder para influir sobre los precios. En contraste, en mercados de **monopolio** u **oligopolio**, las empresas poseen cierto grado de poder de mercado que les permite afectar las condiciones de precio y producción.
+
+Por ello, el análisis de la oferta y la demanda constituye el punto de partida para el estudio de las diferentes estructuras de mercado y para la comprensión de los mecanismos de asignación de recursos dentro de la economía.
 
 \newpage
 
@@ -546,7 +657,7 @@ En resumen, la oferta y la demanda son los dos pilares fundamentales de la micro
 
 \newpage
 
-# TEORÍA DEL COMPORTAMIENTO DEL CONSUMIDOR
+# TEORÍA DE LA DEMANDA DEL CONSUMIDOR
 
 Esta parte de la microeconomía que estudia cómo los individuos, familias y hogares toman decisiones de compra en función de sus ingresos, preferencias y restricciones presupuestarias. El modelo económico tradicional del comportamiento del consumidor se basa en la **teoría de la utilidad**, la cual sugiere que **los consumidores buscan maximizar su utilidad o bienestar subjetivo al elegir qué bienes y servicios desean adquirir**.
 

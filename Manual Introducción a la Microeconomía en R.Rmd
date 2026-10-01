@@ -12,6 +12,7 @@ date: "`r format(Sys.Date(), '%d de %B de %Y')`"
 
 lang: es-MX
 
+
 documentclass: book
 
 classoption:

@@ -2,8 +2,10 @@
 title: |
   \Huge \textbf{Introducción a la Microeconomía Aplicada con R}
 
+
 subtitle: |
   \Large Manual Teórico-Práctico para Estudiantes de Economía
+
 
 author: |
   \textbf{Alberto Madin Rivera}
